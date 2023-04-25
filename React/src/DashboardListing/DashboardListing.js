@@ -15,7 +15,7 @@ const environment = "enterprise";
 const apiHost="http://localhost:61377"
 
 //Bold BI Server URL (ex: http://localhost:5000/bi, http://demo.boldbi.com/bi)
-const rootUrl = "http://localhost:5000/bi/";
+const rootUrl = "http://localhost:53150/bi/";
 
 //Url of the GetDetails action in ValuesController of the ASP.NET Core application
 const authorizationUrl="/api/boldbiembed/getdetails";
