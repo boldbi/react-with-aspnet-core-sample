@@ -4,25 +4,26 @@ import '../index.css';
 import '../index';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 import Axios from 'axios';
+import { embedSettings } from '../config/embedConfig';
 
 //For Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be empty string.
-const siteIdentifier = "site/site1";
+const siteIdentifier = embedSettings.SiteIdentifier;
 
 //Your Bold BI application environment. (If Cloud, you should use `cloud`, if Enterprise, you should use `onpremise`)
-const environment = "enterprise";
+const environment = embedSettings.Environment;
 
 //ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
 const apiHost="http://localhost:61377"
 
 //Bold BI Server URL (ex: http://localhost:5000/bi, http://demo.boldbi.com/bi)
-const rootUrl = "http://localhost:53150/bi/";
+const rootUrl = embedSettings.ServerUrl;
 
 //Url of the GetDetails action in ValuesController of the ASP.NET Core application
 const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
-const userEmail= ""; 
-const userPassword= ""; 
+const userEmail= embedSettings.UserEmail;
+const userPassword= embedSettings.UserPassword; 
 var BoldBiObj;
 
 class DashboardListing extends React.Component {
@@ -34,11 +35,11 @@ class DashboardListing extends React.Component {
 
    renderDashboard(data) {
     this.dashboard= BoldBI.create({
-      serverUrl: rootUrl + siteIdentifier,
+      serverUrl: rootUrl + "/" + siteIdentifier,
       dashboardId: data.Id,
       embedContainerId: "dashboard",
       embedType: BoldBI.EmbedType.Component,
-      environment: environment=="enterprise"? BoldBI.Environment.Enterprise:BoldBI.Environment.Cloud,
+      environment: environment=="onpremise"? BoldBI.Environment.Enterprise:BoldBI.Environment.Cloud,
       mode:BoldBI.Mode.View,
       width:"100%",
       height: window.innerHeight + 'px',
@@ -79,7 +80,7 @@ class DashboardListing extends React.Component {
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
-    Axios.post(rootUrl+'api/'+ siteIdentifier +'/get-user-key',
+    Axios.post(rootUrl+'/api/'+ siteIdentifier +'/get-user-key',
     querystring.stringify({
             UserId: userEmail,
             Password: userPassword
@@ -92,7 +93,7 @@ class DashboardListing extends React.Component {
           token = JSON.parse(result.data.Token).access_token;
           this.setState({ toke: token});
           //Get Dashboards
-      Axios.get(rootUrl+'api/'+ siteIdentifier +'/v2.0/items?ItemType=2',
+      Axios.get(rootUrl+'/api/'+ siteIdentifier +'/v2.0/items?ItemType=2',
       {
         headers: { 
           "Access-Control-Allow-Origin": "*",
