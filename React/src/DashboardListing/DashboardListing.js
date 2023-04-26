@@ -9,14 +9,15 @@ import EmbedConfig from '../embedConfig';
 import DataClass from '../Models/DataClass.cs';
 // import embedConfig from '../embedConfig';
 
-//var url;
-//For Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be empty string.
-//const siteIdentifier = "site/site1";
-const siteIdentifier = embedConfig.SiteIdentifier;
+var embedConfig = "";
 
+
+//For Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be empty string.
+const siteIdentifier = "site/site1";
+//let siteIdentifier = embedConfig.SiteIdentifier;
 //Your Bold BI application environment. (If Cloud, you should use `cloud`, if Enterprise, you should use `onpremise`)
+//let environment = this.state.environment;
 const environment = "onpremise";
-//const environment = embedSettings.Environment;
 
 //ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
 const apiHost="http://localhost:61377"
@@ -30,26 +31,29 @@ const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
 const userEmail= "nithya.gopal@syncfusion.com";
-const userPassword= "Elikutty@531"; 
-const userEmail= embedSettings.UserEmail;
-const userPassword= embedSettings.UserPassword;
+const userPassword= "nithya@531"; 
+// const userEmail= embedSettings.UserEmail;
+// const userPassword= embedSettings.UserPassword;
 var BoldBiObj;
-
-//var embedConfig;
-var embedConfig = {
-  SiteIdentifier : ""
-  // Environment : "", ServerUrl : "", UserEmail : ""
-};
-
 class DashboardListing extends React.Component {
    constructor(props){
-       super(props);
-       this.state = {toke: undefined, items: []};
-       this.stateConfig = {embedConfig: undefined, items: []};
-       this.BoldBiObj = new BoldBI();
+      // super(props);
+      // this.state = {toke: undefined, items: []};
+     //  this.BoldBiObj = new BoldBI();
+      // this.state = { embedConfig: {} };
+      super(props);
+      this.state = {
+        toke: undefined,
+        items: [],
+        embedConfig: {},
+        environment: '',
+        siteIdentifier: ''
+      };
+      this.BoldBiObj = new BoldBI();
+
    };
 
-   renderDashboard(data) {
+   renderDashboard(data, embedConfig) {
     this.dashboard= BoldBI.create({
       serverUrl: rootUrl + "/" + siteIdentifier,
       dashboardId: data.Id,
@@ -63,7 +67,6 @@ class DashboardListing extends React.Component {
       authorizationServer: {
           url:apiHost + authorizationUrl
       },
-      //  embedConfig : this.state
   });
 
   console.log(this.dashboard);
@@ -73,14 +76,16 @@ class DashboardListing extends React.Component {
 
   render() {
     return (
+      //  environment = this.state.environment;
+      <React.Fragment>
       <div id="DashboardListing">
           <div id="container">
             <div className="header-section">
               <div id="grid-title">All Dashboard</div>
             </div>
             <div id="panel">
-              {this.state.items.map((el) => 
-                <button className="dashboard-item" attr-name ={el.Name} attr-id = {el.Id} value={el} onClick={((e) => this.renderDashboard(el))} >
+              {this.state.items.map((el, e2) => 
+                <button className="dashboard-item" attr-name ={el.Name} attr-id = {el.Id} value={el} onClick={((e) => this.renderDashboard(el, e2))} >
                 {el.Name}
                 </button>
               )}
@@ -89,80 +94,85 @@ class DashboardListing extends React.Component {
           <div id="viewer-section">
             <div id="dashboard"></div>
           </div>
+   
       </div>
+         <div>
+         SiteIdentifier: {this.state.siteIdentifier}
+         {/* embedConfig: {this.state.embedConfig} */}
+       </div>
+     </React.Fragment>
     );
   }
 
-
+ ChildComponent(props) {
+          {/* <div>
+        <ChildComponent embedConfig = {this.state.embedConfig} />
+      </div> */}
+    // Use the embedConfig prop to render something
+    return <p>{props.embedConfig.SiteIdentifier}</p>;
+  }
+  doSomethingWithData(embedConfig)
+  {
+    console.log(embedConfig.Environment);
+    this.setState({ environment: embedConfig.Environment });
+    this.setState({ siteIdentifier: embedConfig.SiteIdentifier});
+    this.setState({ embedConfig});
+  }
+   
   componentDidMount() {
-    Axios.get(apiHost + '/api/boldbiembed/GetData')
+       fetch(apiHost + '/api/boldbiembed/GetData')
       .then(response => {
-        var result = response;
-        this.setState({ embedConfig: response.data });
-        embedConfig.SiteIdentifier = response.data.SiteIdentifier;
-        // myObject = response.data;
-        // myObject.Environment = response.data.Environment;
-        // DataClass.Environment = response.data.Environment;
-        // DataClass.ServerUrl =response.data.ServerUrl;
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ embedConfig: data });
+        this.doSomethingWithData(embedConfig);
       })
       .catch(error => {
         console.log(error);
       });
+    
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
-    Axios.post(rootUrl+'/api/'+ siteIdentifier +'/get-user-key',
-    querystring.stringify({
-            UserId: userEmail,
-            Password: userPassword
-    }), {
-      headers: { 
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
-    }).then(response => {
-          var result = response;
-          token = JSON.parse(result.data.Token).access_token;
-          this.setState({ toke: token});
-        //  this.state({embedConfig});
-          //Get Dashboards
-      Axios.get(rootUrl+'/api/'+ siteIdentifier +'/v2.0/items?ItemType=2',
-      {
+    fetch(rootUrl+'/api/'+ siteIdentifier +'/get-user-key', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: querystring.stringify({
+        UserId: userEmail,
+        Password: userPassword
+      })
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      token = JSON.parse(data.Token).access_token;
+      this.setState({ toke: token });
+      //Get Dashboards
+      fetch(rootUrl+'/api/'+ siteIdentifier +'/v2.0/items?ItemType=2', {
         headers: { 
           "Access-Control-Allow-Origin": "*",
           "Authorization":'bearer ' + this.state.toke
         }
-      }).then(res => {
-          var arrayOfObjects = res.data;
-          this.setState({ items: arrayOfObjects});
-         // EmbedConfig.getData();
-           //this.GetData();
-          // var getEmbedConfig = this.GetData();
-          this.renderDashboard(arrayOfObjects[0]);
-      },
-      error => {
-          this.setState({items: "error"});
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        var arrayOfObjects = data;
+        this.setState({ items: arrayOfObjects });
+        this.renderDashboard(arrayOfObjects[0], embedConfig);
+      })
+      .catch(error => {
+        this.setState({ items: "error" });
       });
-    },
-    error => {
-       this.setState({toke: "error"});
+    })
+    .catch(error => {
+      this.setState({ toke: "error" });
     });
   }  
-  // GetData(response) {
-  //   Axios.get(apiHost + '/api/boldbiembed/GetData')
-  //     .then(response => {
-  //       this.setState({ embedConfig: response.data });
-  //       var result = response;
-  //       configValue = JSON.parse(result.data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-
-  // }
-
-// embedValue(data)
-// {
-//     url = data.ServerUrl;
-// }
 }
 export default DashboardListing;
