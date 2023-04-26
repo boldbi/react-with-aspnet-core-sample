@@ -31,7 +31,7 @@ const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
 const userEmail= "nithya.gopal@syncfusion.com";
-const userPassword= "nithya@531"; 
+const userPassword= "nithya@5314"; 
 // const userEmail= embedSettings.UserEmail;
 // const userPassword= embedSettings.UserPassword;
 var BoldBiObj;
