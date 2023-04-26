@@ -2,34 +2,50 @@ import React from 'react';
 import './DashboardListing.css';
 import '../index.css';
 import '../index';
+import { useState, useEffect } from 'react';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 import Axios from 'axios';
-import { embedSettings } from '../config/embedConfig';
+import EmbedConfig from '../embedConfig';
+import DataClass from '../Models/DataClass.cs';
+// import embedConfig from '../embedConfig';
 
+//var url;
 //For Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be empty string.
-const siteIdentifier = embedSettings.SiteIdentifier;
+//const siteIdentifier = "site/site1";
+const siteIdentifier = embedConfig.SiteIdentifier;
 
 //Your Bold BI application environment. (If Cloud, you should use `cloud`, if Enterprise, you should use `onpremise`)
-const environment = embedSettings.Environment;
+const environment = "onpremise";
+//const environment = embedSettings.Environment;
 
 //ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
 const apiHost="http://localhost:61377"
 
 //Bold BI Server URL (ex: http://localhost:5000/bi, http://demo.boldbi.com/bi)
-const rootUrl = embedSettings.ServerUrl;
+const rootUrl = "http://localhost:53150/bi";
+// const rootUrl = embedSettings.ServerUrl;
 
 //Url of the GetDetails action in ValuesController of the ASP.NET Core application
 const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
+const userEmail= "nithya.gopal@syncfusion.com";
+const userPassword= "Elikutty@531"; 
 const userEmail= embedSettings.UserEmail;
-const userPassword= embedSettings.UserPassword; 
+const userPassword= embedSettings.UserPassword;
 var BoldBiObj;
+
+//var embedConfig;
+var embedConfig = {
+  SiteIdentifier : ""
+  // Environment : "", ServerUrl : "", UserEmail : ""
+};
 
 class DashboardListing extends React.Component {
    constructor(props){
        super(props);
        this.state = {toke: undefined, items: []};
+       this.stateConfig = {embedConfig: undefined, items: []};
        this.BoldBiObj = new BoldBI();
    };
 
@@ -46,7 +62,8 @@ class DashboardListing extends React.Component {
       expirationTime:100000,
       authorizationServer: {
           url:apiHost + authorizationUrl
-      }
+      },
+      //  embedConfig : this.state
   });
 
   console.log(this.dashboard);
@@ -76,7 +93,21 @@ class DashboardListing extends React.Component {
     );
   }
 
+
   componentDidMount() {
+    Axios.get(apiHost + '/api/boldbiembed/GetData')
+      .then(response => {
+        var result = response;
+        this.setState({ embedConfig: response.data });
+        embedConfig.SiteIdentifier = response.data.SiteIdentifier;
+        // myObject = response.data;
+        // myObject.Environment = response.data.Environment;
+        // DataClass.Environment = response.data.Environment;
+        // DataClass.ServerUrl =response.data.ServerUrl;
+      })
+      .catch(error => {
+        console.log(error);
+      });
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
@@ -92,6 +123,7 @@ class DashboardListing extends React.Component {
           var result = response;
           token = JSON.parse(result.data.Token).access_token;
           this.setState({ toke: token});
+        //  this.state({embedConfig});
           //Get Dashboards
       Axios.get(rootUrl+'/api/'+ siteIdentifier +'/v2.0/items?ItemType=2',
       {
@@ -102,6 +134,9 @@ class DashboardListing extends React.Component {
       }).then(res => {
           var arrayOfObjects = res.data;
           this.setState({ items: arrayOfObjects});
+         // EmbedConfig.getData();
+           //this.GetData();
+          // var getEmbedConfig = this.GetData();
           this.renderDashboard(arrayOfObjects[0]);
       },
       error => {
@@ -112,5 +147,22 @@ class DashboardListing extends React.Component {
        this.setState({toke: "error"});
     });
   }  
+  // GetData(response) {
+  //   Axios.get(apiHost + '/api/boldbiembed/GetData')
+  //     .then(response => {
+  //       this.setState({ embedConfig: response.data });
+  //       var result = response;
+  //       configValue = JSON.parse(result.data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+
+  // }
+
+// embedValue(data)
+// {
+//     url = data.ServerUrl;
+// }
 }
 export default DashboardListing;

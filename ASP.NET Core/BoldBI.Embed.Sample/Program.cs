@@ -33,25 +33,25 @@ app.UseCors(corsPolicyBuilder => corsPolicyBuilder
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-try
-{
-    string basePath = AppDomain.CurrentDomain.BaseDirectory;
-    string jsonString = File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
-    GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
-}
-catch (Exception)
-{
-    app.UseExceptionHandler("/error");
-    app.Map("/error", errorApp =>
-    {
-        errorApp.Run(async context =>
-        {
-            //context.Response.StatusCode = 500;
-            //context.Response.ContentType = "text/html";
-            await context.Response.SendFileAsync("Views/Home/EmbedConfigErrorLog.cshtml");
-        });
-    });
-}
+//try
+//{
+//    string basePath = AppDomain.CurrentDomain.BaseDirectory;
+//    string jsonString = File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
+//    GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
+//}
+//catch (Exception)
+//{
+//    app.UseExceptionHandler("/error");
+//    app.Map("/error", errorApp =>
+//    {
+//        errorApp.Run(async context =>
+//        {
+//            //context.Response.StatusCode = 500;
+//            //context.Response.ContentType = "text/html";
+//            await context.Response.SendFileAsync("Views/Home/EmbedConfigErrorLog.cshtml");
+//        });
+//    });
+//}
 
 app.UseRouting();
 

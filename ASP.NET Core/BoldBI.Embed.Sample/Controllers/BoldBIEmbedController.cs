@@ -21,6 +21,7 @@ namespace BoldBI.Embed.Sample.Controllers
         {
             try
             {
+                var data = System.IO.File.ReadAllText("embedConfig.json");
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string jsonString = System.IO.File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
                 GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
@@ -28,8 +29,16 @@ namespace BoldBI.Embed.Sample.Controllers
             }
             catch (Exception)
             {
-                return "To compile and run the project, an embed config file needs to be required. Please use the <a href=&quot;https://help.boldbi.com/cloud-bi/site-administration/embed-settings/&quot; target=&quot;_blank&quot;>URL</a> to obtain the JSON file from the Bold BI server.";
+                return "To compile and run the project, an embed config file needs to be required. Please download JSON file from the BoldBI Server.";
             }
+        }
+
+        [HttpGet]
+        [Route("GetData")]
+        public IActionResult GetData()
+        {
+            var jsonData = System.IO.File.ReadAllText("embedConfig.json");
+            return Ok(jsonData);
         }
 
         [HttpGet]
@@ -89,7 +98,7 @@ namespace BoldBI.Embed.Sample.Controllers
                 client.DefaultRequestHeaders.Accept.Clear();
 
                 var result = client.GetAsync(embedClass.dashboardServerApiUrl + embedDetailsUrl).Result;
-                string resultContent = result.Content.ReadAsStringAsync().Result;
+                string resultContent = result.Content.ReadAsStringAsync().Result;       
                 return resultContent;
             }
 
