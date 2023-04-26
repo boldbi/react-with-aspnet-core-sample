@@ -8,8 +8,8 @@ const apiHost="http://localhost:61377";
 const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
-const userEmail= "nithya.gopal@syncfusion.com";
-const userPassword= "nithya@531";
+// const userEmail= "nithya.gopal@syncfusion.com";
+// const userPassword= "nithya@531";
 
 var BoldBiObj;
 var embedConfig;
@@ -54,8 +54,6 @@ class DashboardListing extends React.Component {
 
   render() {
     return (
-      //  environment = this.state.environment;
-      <React.Fragment>
       <div id="DashboardListing">
           <div id="container">
             <div className="header-section">
@@ -73,106 +71,49 @@ class DashboardListing extends React.Component {
             <div id="dashboard"></div>
           </div>
       </div>
-     </React.Fragment>
     );
   }
-
-  // async fetchData() {
-  //   try 
-  //   {
-  //     const response = await fetch(apiHost + '/api/boldbiembed/GetData');
-  //     const data = await response.json();
-  //     this.setState({ embedConfig: data });
-  //     const embedConfig = this.state.embedConfig;
-  //     console.log(this.state.embedConfig);
-  //   } 
-  //   catch (error) {
-  //     console.log(error);
-  //   }
-  // }
 
   async componentDidMount() {
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
-    // var userEmail = "";
-    // var userPassword = "";
-       fetch(apiHost + '/api/boldbiembed/GetData')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({ embedConfig: data });
-        // embedConfig = {data};
-        const embedConfig = this.state.embedConfig;
-      })
-      .catch(error => {
-        console.log(error);
+  
+    try {
+      const response = await fetch(apiHost + '/api/boldbiembed/GetData');
+      const data = await response.json();
+      this.setState({ embedConfig: data });
+      const embedConfig = this.state.embedConfig;
+  
+      const tokenResponse = await fetch(this.state.embedConfig.ServerUrl + '/api/' + this.state.embedConfig.SiteIdentifier + '/get-user-key', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: querystring.stringify({
+          UserId: this.state.embedConfig.UserEmail,
+          Password: "Elikutty@531"
+        })
       });
-
-
-      // try {
-      //   const response = await fetch(apiHost + '/api/boldbiembed/GetData');
-      //   const data = await response.json();
-      //   this.setState({ embedConfig: data });
-      //   const embedConfig = this.state.embedConfig;
-      //   // do something with embedConfig here
-      // } catch (error) {
-      //   console.log(error);
-      // }
-
-      // try 
-      // {
-      //   const response = await fetch(apiHost + '/api/boldbiembed/GetData');
-      //   const data = await response.json();
-      //   this.setState({ embedConfig: data });
-      //   const embedConfig = this.state.embedConfig;
-      //   console.log(this.state.embedConfig);
-      // } 
-      // catch (error) {
-      //   console.log(error);
-      // }
-
-      //this.fetchData();
-   
-    fetch('http://localhost:53150/bi' +'/api/'+ 'site/site1' +'/get-user-key', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: querystring.stringify({
-        UserId: "nithya.gopal@syncfusion.com",
-        Password: "Elikutty@531"
-      })
-    })
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      token = JSON.parse(data.Token).access_token;
+      const tokenData = await tokenResponse.json();
+      token = JSON.parse(tokenData.Token).access_token;
       this.setState({ toke: token });
-      //Get Dashboards
-      fetch('http://localhost:53150/bi' +'/api/'+ 'site/site1' +'/v2.0/items?ItemType=2', {
+  
+      const itemsResponse = await fetch(this.state.embedConfig.ServerUrl + '/api/' + this.state.embedConfig.SiteIdentifier + '/v2.0/items?ItemType=2', {
         headers: {
           "Access-Control-Allow-Origin": "*",
-          "Authorization":'bearer ' + this.state.toke
+          "Authorization": 'bearer ' + this.state.toke
         }
-      })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        var arrayOfObjects = data;
-        this.setState({ items: arrayOfObjects });
-        this.renderDashboard(arrayOfObjects[0]);
-      })
-      .catch(error => {
-        this.setState({ items: "error" });
       });
-    })
-    .catch(error => {
-      this.setState({ toke: "error" });
-    });
+      const itemsData = await itemsResponse.json();
+      var arrayOfObjects = itemsData;
+      this.setState({ items: arrayOfObjects });
+      this.renderDashboard(arrayOfObjects[0]);
+    } catch (error) {
+      console.log(error);
+      this.setState({ toke: "error", items: "error" });
+    }
   }
+  
 }
 export default DashboardListing;
