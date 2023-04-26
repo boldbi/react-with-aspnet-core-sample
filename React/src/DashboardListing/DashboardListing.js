@@ -2,36 +2,14 @@ import React from 'react';
 import './DashboardListing.css';
 import '../index.css';
 import '../index';
-import { useState, useEffect } from 'react';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
-import Axios from 'axios';
-// import EmbedConfig from '../embedConfig';
-// import DataClass from '../Models/DataClass.cs';
-// import embedConfig from '../embedConfig';
-// import embedConfig from '../embedConfig';
-
-//For Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be empty string.
-// const siteIdentifier = "site/site1";
-//let siteIdentifier = embedConfig.SiteIdentifier;
-//Your Bold BI application environment. (If Cloud, you should use `cloud`, if Enterprise, you should use `onpremise`)
-//let environment = this.state.environment;
-// const environment = "onpremise";
-
-//ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
-
-
-//Bold BI Server URL (ex: http://localhost:5000/bi, http://demo.boldbi.com/bi)
-// const rootUrl = "http://localhost:53150/bi";
-// const rootUrl = embedSettings.ServerUrl;
-
-//Url of the GetDetails action in ValuesController of the ASP.NET Core application
 
 const apiHost="http://localhost:61377";
 const authorizationUrl="/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
-// const userEmail= "nithya.gopal@syncfusion.com";
-// const userPassword= "nithya@531";
+const userEmail= "nithya.gopal@syncfusion.com";
+const userPassword= "nithya@531";
 
 var BoldBiObj;
 var embedConfig;
@@ -94,56 +72,54 @@ class DashboardListing extends React.Component {
           <div id="viewer-section">
             <div id="dashboard"></div>
           </div>
-
       </div>
-         <div>
-         SiteIdentifier: {this.state.siteIdentifier}
-         {/* embedConfig: {this.state.embedConfig} */}
-       </div>
      </React.Fragment>
     );
   }
 
-  doSomethingWithData(embedConfig)
-  {
-    console.log(embedConfig.Environment);
-    this.setState({ environment: embedConfig.Environment });
-    this.setState({ siteIdentifier: embedConfig.SiteIdentifier});
-    this.setState({ embedConfig});
-  }
+  // async fetchData() {
+  //   try 
+  //   {
+  //     const response = await fetch(apiHost + '/api/boldbiembed/GetData');
+  //     const data = await response.json();
+  //     this.setState({ embedConfig: data });
+  //     const embedConfig = this.state.embedConfig;
+  //     console.log(this.state.embedConfig);
+  //   } 
+  //   catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async fetchData() {
-    try 
-    {
-      const response = await fetch(apiHost + '/api/boldbiembed/GetData');
-      const data = await response.json();
-      this.setState({ embedConfig: data });
-      const embedConfig = this.state.embedConfig;
-      console.log(this.state.embedConfig);
-    } 
-    catch (error) {
-      console.log(error);
-    }
-  }
-
-  componentDidMount() {
+  async componentDidMount() {
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
-    var userEmail = "";
-    var userPassword = "";
-      //  await fetch(apiHost + '/api/boldbiembed/GetData')
-      // .then(response => {
-      //   return response.json();
-      // })
-      // .then(data => {
+    // var userEmail = "";
+    // var userPassword = "";
+       fetch(apiHost + '/api/boldbiembed/GetData')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ embedConfig: data });
+        // embedConfig = {data};
+        const embedConfig = this.state.embedConfig;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+
+      // try {
+      //   const response = await fetch(apiHost + '/api/boldbiembed/GetData');
+      //   const data = await response.json();
       //   this.setState({ embedConfig: data });
-      //   embedConfig = {data};
       //   const embedConfig = this.state.embedConfig;
-      // })
-      // .catch(error => {
+      //   // do something with embedConfig here
+      // } catch (error) {
       //   console.log(error);
-      // });
+      // }
 
       // try 
       // {
@@ -157,15 +133,15 @@ class DashboardListing extends React.Component {
       //   console.log(error);
       // }
 
-      this.fetchData();
+      //this.fetchData();
    
-    fetch(this.state.embedConfig.ServerUrl+'/api/'+ this.state.embedConfig.SiteIdentifier +'/get-user-key', {
+    fetch('http://localhost:53150/bi' +'/api/'+ 'site/site1' +'/get-user-key', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: querystring.stringify({
-        UserId: this.state.embedConfig.userEmail,
+        UserId: "nithya.gopal@syncfusion.com",
         Password: "Elikutty@531"
       })
     })
@@ -176,7 +152,7 @@ class DashboardListing extends React.Component {
       token = JSON.parse(data.Token).access_token;
       this.setState({ toke: token });
       //Get Dashboards
-      fetch(this.state.embedConfig.ServerUrl+'/api/'+ this.state.embedConfig.SiteIdentifier +'/v2.0/items?ItemType=2', {
+      fetch('http://localhost:53150/bi' +'/api/'+ 'site/site1' +'/v2.0/items?ItemType=2', {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Authorization":'bearer ' + this.state.toke
@@ -188,7 +164,7 @@ class DashboardListing extends React.Component {
       .then(data => {
         var arrayOfObjects = data;
         this.setState({ items: arrayOfObjects });
-        this.renderDashboard(arrayOfObjects[0], embedConfig);
+        this.renderDashboard(arrayOfObjects[0]);
       })
       .catch(error => {
         this.setState({ items: "error" });
