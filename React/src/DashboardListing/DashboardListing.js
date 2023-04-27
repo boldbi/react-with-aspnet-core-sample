@@ -2,74 +2,64 @@ import React from 'react';
 import './DashboardListing.css';
 import '../index.css';
 import '../index';
-import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
+import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 
 const apiHost = "http://localhost:61377";
 const authorizationUrl = "/api/boldbiembed/getdetails";
 
-//Enter your BoldBI credentials here
-// const userEmail= "nithya.gopal@syncfusion.com";
-// const userPassword= "nithya@531";
-
 var BoldBiObj;
 var embedConfig;
 class DashboardListing extends React.Component {
-   constructor(props){
-      // super(props);
-      // this.state = {toke: undefined, items: []};
-     //  this.BoldBiObj = new BoldBI();
-      // this.state = { embedConfig: {} };
-      super(props);
-      this.state = {
-        toke: undefined,
-        items: [],
-        embedConfig: {},
-        environment: '',
-        siteIdentifier: ''
-      };
-      this.BoldBiObj = new BoldBI();
+  constructor(props) {
+    super(props);
+    this.state = {
+      toke: undefined,
+      items: [],
+      embedConfig: {},
+    };
+    this.BoldBiObj = new BoldBI();
 
-   };
+  };
 
-   renderDashboard(data) {
-    this.dashboard= BoldBI.create({
+  renderDashboard(data) {
+    this.dashboard = BoldBI.create({
       serverUrl: this.state.embedConfig.ServerUrl + "/" + this.state.embedConfig.SiteIdentifier,
       dashboardId: data.Id,
       embedContainerId: "dashboard",
       embedType: BoldBI.EmbedType.Component,
-      environment: this.state.embedConfig.Environment =="onpremise"? BoldBI.Environment.Enterprise:BoldBI.Environment.Cloud,
-      mode:BoldBI.Mode.View,
-      width:"100%",
+      environment: this.state.embedConfig.Environment == "onpremise" ? BoldBI.Environment.Enterprise : BoldBI.Environment.Cloud,
+      mode: BoldBI.Mode.View,
+      width: "100%",
       height: window.innerHeight + 'px',
-      expirationTime:100000,
+      expirationTime: 100000,
       authorizationServer: {
-          url:apiHost + authorizationUrl
+        url: apiHost + authorizationUrl
       },
-  });
+    });
 
-  console.log(this.dashboard);
-  this.dashboard.loadDashboard();
+    console.log(this.dashboard);
+    this.dashboard.loadDashboard();
 
   }
 
   render() {
     return (
       <div id="DashboardListing">
-          <div id="container">
-            <div className="header-section">
-              <div id="grid-title">All Dashboard</div>
-            </div>
-            <div id="panel">
-              {this.state.items.map((el) =>
-                <button className="dashboard-item" attr-name ={el.Name} attr-id = {el.Id} value={el} onClick={((e) => this.renderDashboard(el))} >
+        <div id="container">
+          <div className="header-section">
+            <div id="grid-title">All Dashboard</div>
+          </div>
+          <div id="panel">
+            {this.state.items.map((el) =>
+              <button className="dashboard-item" attr-name={el.Name} attr-id={el.Id} value={el} onClick={((e) => this.renderDashboard(el))} >
                 {el.Name}
-                </button>
-              )}
-            </div>
+              </button>
+            )}
           </div>
-          <div id="viewer-section">
-            <div id="dashboard"></div>
-          </div>
+        </div>
+        <div id="viewer-section">
+          <div id="dashboard"></div>
+        </div>
       </div>
     );
   }
@@ -78,28 +68,27 @@ class DashboardListing extends React.Component {
     var dashboard = undefined;
     var querystring = require('querystring');
     var token = "";
-  
+
     try {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
       const data = await response.json();
       this.setState({ embedConfig: data });
       const embedConfig = this.state.embedConfig;
-  
-      const tokenResponse = await fetch(this.state.embedConfig.ServerUrl + '/api/' + this.state.embedConfig.SiteIdentifier + '/get-user-key', {
+      const tokenResponse = await fetch(this.state.embedConfig.ServerUrl + '/api/' + this.state.embedConfig.SiteIdentifier + '/token', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: querystring.stringify({
-          UserId: this.state.embedConfig.UserEmail,
-         // Password: "Elikutty@531"
-           EmbedSecret: this.state.embedConfig.EmbedSecret
+          grant_type: "embed_secret",
+          username: this.state.embedConfig.UserEmail,
+          embed_secret: this.state.embedConfig.EmbedSecret
         })
       });
       const tokenData = await tokenResponse.json();
-      token = JSON.parse(tokenData.Token).access_token;
+      token = tokenData.access_token;
       this.setState({ toke: token });
-  
+
       const itemsResponse = await fetch(this.state.embedConfig.ServerUrl + '/api/' + this.state.embedConfig.SiteIdentifier + '/v2.0/items?ItemType=2', {
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -115,6 +104,6 @@ class DashboardListing extends React.Component {
       this.setState({ toke: "error", items: "error" });
     }
   }
-  
+
 }
 export default DashboardListing;

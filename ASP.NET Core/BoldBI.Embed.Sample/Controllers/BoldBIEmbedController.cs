@@ -30,7 +30,6 @@ namespace BoldBI.Embed.Sample.Controllers
             }
             catch
             {
-                //return View("~Views/EmbedConfigErrorLog.cshtml");
                 return View("EmbedConfigErrorLog");
             }
         }
