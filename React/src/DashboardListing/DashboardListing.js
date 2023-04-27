@@ -4,8 +4,8 @@ import '../index.css';
 import '../index';
 import {BoldBI} from '@boldbi/boldbi-embedded-sdk';
 
-const apiHost="http://localhost:61377";
-const authorizationUrl="/api/boldbiembed/getdetails";
+const apiHost = "http://localhost:61377";
+const authorizationUrl = "/api/boldbiembed/getdetails";
 
 //Enter your BoldBI credentials here
 // const userEmail= "nithya.gopal@syncfusion.com";
@@ -92,7 +92,8 @@ class DashboardListing extends React.Component {
         },
         body: querystring.stringify({
           UserId: this.state.embedConfig.UserEmail,
-          Password: "Elikutty@531"
+         // Password: "Elikutty@531"
+           EmbedSecret: this.state.embedConfig.EmbedSecret
         })
       });
       const tokenData = await tokenResponse.json();

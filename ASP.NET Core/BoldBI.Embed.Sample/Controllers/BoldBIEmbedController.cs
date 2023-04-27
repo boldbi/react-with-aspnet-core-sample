@@ -9,27 +9,30 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using BoldBI.Embed.Sample.Models;
 using System.IO;
+using Microsoft.AspNetCore.Mvc.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using System.Net;
 
 namespace BoldBI.Embed.Sample.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BoldBIEmbedController : ControllerBase
+    public class BoldBIEmbedController : Controller
     {
         [HttpGet]
-        public string Get()
+        public IActionResult Get()
         {
             try
             {
-                var data = System.IO.File.ReadAllText("embedConfig.json");
                 string basePath = AppDomain.CurrentDomain.BaseDirectory;
                 string jsonString = System.IO.File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
                 GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
-                return "Application Running....";
+                return Ok("Application Running....");
             }
-            catch (Exception)
+            catch
             {
-                return "To compile and run the project, an embed config file needs to be required. Please download JSON file from the BoldBI Server.";
+                //return View("~Views/EmbedConfigErrorLog.cshtml");
+                return View("EmbedConfigErrorLog");
             }
         }
 
