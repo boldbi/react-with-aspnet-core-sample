@@ -1,4 +1,3 @@
-using BoldBI.Embed.Sample.Model;
 using BoldBI.Embed.Sample.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

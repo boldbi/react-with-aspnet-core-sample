@@ -1,4 +1,4 @@
-﻿using BoldBI.Embed.Sample.Model;
+﻿using BoldBI.Embed.Sample.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
