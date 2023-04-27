@@ -18,7 +18,6 @@ class DashboardListing extends React.Component {
       embedConfig: {},
     };
     this.BoldBiObj = new BoldBI();
-
   };
 
   renderDashboard(data) {
@@ -39,7 +38,6 @@ class DashboardListing extends React.Component {
 
     console.log(this.dashboard);
     this.dashboard.loadDashboard();
-
   }
 
   render() {
@@ -104,6 +102,5 @@ class DashboardListing extends React.Component {
       this.setState({ toke: "error", items: "error" });
     }
   }
-
 }
 export default DashboardListing;
