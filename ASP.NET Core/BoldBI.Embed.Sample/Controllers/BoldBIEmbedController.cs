@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using BoldBI.Embed.Sample.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Newtonsoft.Json;
