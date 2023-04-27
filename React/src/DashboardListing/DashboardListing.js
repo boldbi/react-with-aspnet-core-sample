@@ -4,11 +4,13 @@ import '../index.css';
 import '../index';
 import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 
+//ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
 const apiHost = "http://localhost:61377";
+
+//Url of the GetDetails action in ValuesController of the ASP.NET Core application
 const authorizationUrl = "/api/boldbiembed/getdetails";
 
 var BoldBiObj;
-var embedConfig;
 class DashboardListing extends React.Component {
   constructor(props) {
     super(props);
