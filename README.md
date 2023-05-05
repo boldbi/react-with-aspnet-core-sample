@@ -27,44 +27,43 @@ The samples require the following requirements to run.
  
  * The following properties are used in `embedConfig.json` file:
 
-     <meta charset="utf-8"/>
-     <table>
-     <tbody>
-       <tr>
-        <td align="left">ServerUrl</td>
-        <td align="left">Dashboard Server URL (Eg: http://localhost:5000/bi, http://demo.boldbi.com/bi).</td>
-       </tr>
-       <tr>
-        <td align="left">EmbedSecret</td>
-        <td align="left">Get your EmbedSecret key from the Embed tab by enabling the `Enable embed authentication` on the Administration page https://help.boldbi.com/embedded-bi/site-administration/embed-settings/.</td>
-       </tr>
-       <tr>
-        <td align="left">SiteIdentifier</td>
-        <td align="left">For the Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be an empty string.</td>
-       </tr>
-       <tr>
-        <td align="left">Environment</td>
-        <td align="left">Your Bold BI application environment. (If Cloud, you should use `cloud,` if Enterprise, you should use `enterprise`).</td>
-       </tr>
-       <tr>
-        <td align="left">UserEmail</td>
-        <td align="left">UserEmail of the Admin in your Bold BI, which would be used to get the dashboard list.</td>
-       </tr>
-       <tr>
-        <td align="left">DashboardId</td>
-        <td align="left">Item id of the dashboard to be embedded in your application.</td>
-       </tr>
-       <tr>
-        <td align="left">EmbedType</td>
-        <td align="left">BoldBI.EmbedType.Component.</td>
-       </tr>
-       <tr>
-        <td align="left">ExpirationTime</td>
-        <td align="left">Token expiration time.</td>
-       </tr>
-     </tbody>
-     </table>
-
+    <meta charset="utf-8"/>
+    <table>
+    <tbody>
+        <tr>
+            <td align="left">ServerUrl</td>
+            <td align="left">Dashboard Server URL (Eg: http://localhost:5000/bi, http://demo.boldbi.com/bi).</td>
+        </tr>
+        <tr>
+            <td align="left">EmbedSecret</td>
+            <td align="left">Get your EmbedSecret key from the Embed tab by enabling the `Enable embed authentication` on the Administration page https://help.boldbi.com/embedded-bi/site-administration/embed-settings/.</td>
+        </tr>
+        <tr>
+            <td align="left">SiteIdentifier</td>
+            <td align="left">For the Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be an empty string.</td>
+        </tr>
+        <tr>
+            <td align="left">Environment</td>
+            <td align="left">Your Bold BI application environment. (If Cloud, you should use `cloud,` if Enterprise, you should use `enterprise`).</td>
+        </tr>
+        <tr>
+            <td align="left">UserEmail</td>
+            <td align="left">UserEmail of the Admin in your Bold BI, which would be used to get the dashboard list.</td>
+        </tr>
+        <tr>
+            <td align="left">DashboardId</td>
+            <td align="left">Item id of the dashboard to be embedded in your application.</td>
+        </tr>
+        <tr>
+            <td align="left">EmbedType</td>
+            <td align="left">BoldBI.EmbedType.Component.</td>
+        </tr>
+        <tr>
+            <td align="left">ExpirationTime</td>
+            <td align="left">Token expiration time.</td>
+        </tr>
+    </tbody>
+    </table>
 
 * Now run the back-end ASP.NET Core sample.
 
