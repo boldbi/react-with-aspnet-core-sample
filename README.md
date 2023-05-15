@@ -73,7 +73,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
     
   ### ASP.NET Core sample: 
 
-  1. Open command prompt in this file [location](https://github.com/boldbi/aspnet-core-sample/tree/master/BoldBI.Embed.Sample) of the back-end ASP.NET Core sample.
+  1. Open command prompt in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ASP.NET%20Core/BoldBI.Embed.Sample) of the back-end ASP.NET Core sample.
 
   2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been restored, use the `dotnet build` command to build the project.
   
@@ -95,7 +95,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
 
   ### ASP.NET Core sample: 
 
-  1. Open the Visual Studio code in this file [location](https://github.com/boldbi/aspnet-core-sample/tree/master/BoldBI.Embed.Sample) of the back-end ASP.NET Core sample.
+  1. Open the Visual Studio code in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ASP.NET%20Core/BoldBI.Embed.Sample) of the back-end ASP.NET Core sample.
 
   2. Open the terminal in Visual Studio Code. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been restored, use the `dotnet build` command to build the project.
   
