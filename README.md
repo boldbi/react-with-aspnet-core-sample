@@ -91,7 +91,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
 
   ### How to run sample using visual studio code
 
-  ### ASP.NET Core sample: 
+  #### ASP.NET Core sample: 
 
   1. Open the Visual Studio code in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ASP.NET%20Core/BoldBI.Embed.Sample) of the back-end ASP.NET Core sample.
 
@@ -99,7 +99,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
   
   3. Run the application using the command `dotnet run`.
 
-  ### React sample:
+  #### React sample:
 
   1. Open the Visual Studio in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React) of the React sample.
 
