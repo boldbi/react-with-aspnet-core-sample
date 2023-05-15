@@ -12,8 +12,6 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
  * [Node.js](https://nodejs.org/en/)
  * [Visual Studio Code](https://code.visualstudio.com/download)
 
- > **Note:** NodeJS version >=16.17.0 is required to use.
-
  ### Help link
 
  * https://help.boldbi.com/embedded-bi/faq/where-can-i-find-the-product-version/
@@ -91,7 +89,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
 
   * Visual studio code(https://code.visualstudio.com/download)
 
- ## How to run sample using visual studio code
+  ### How to run sample using visual studio code
 
   ### ASP.NET Core sample: 
 
