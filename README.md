@@ -81,7 +81,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
 
   ### React sample:
 
-  1. Open command prompt in this file [location](https://github.com/boldbi/aspnet-core-sample/tree/master/BoldBI.Embed.Sample) of the React sample.
+  1. Open command prompt in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React) of the React sample.
 
   2. To install all dependent packages, use the following command `npm install`. To install the Bold BI Embedded SDK package using the following command `npm install -save @boldbi/boldbi-embedded-sdk`.
 
@@ -103,7 +103,7 @@ This project was generated using ASP.NET Core CLI version 6.0 or a later version
 
   ### React sample:
 
-  1. Open the Visual Studio in this file [location](https://github.com/boldbi/aspnet-core-sample/tree/master/BoldBI.Embed.Sample) of the React sample.
+  1. Open the Visual Studio in this file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React) of the React sample.
 
   2. To install all dependent packages, use the following command `npm install`. To install the Bold BI Embedded SDK package using the following command `npm install -save @boldbi/boldbi-embedded-sdk`.
 
