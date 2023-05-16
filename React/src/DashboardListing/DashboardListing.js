@@ -5,7 +5,7 @@ import '../index';
 import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 
 //ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as `apiHost`
-const apiHost = "http://localhost:61377";
+const apiHost = "https://localhost:5001";
 
 //Url of the GetDetails action in ValuesController of the ASP.NET Core application
 const authorizationUrl = "/api/boldbiembed/getdetails";
