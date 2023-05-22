@@ -39,44 +39,10 @@ namespace BoldBI.Embed.Sample.Controllers
         public IActionResult GetData()
         {
             var jsonData = System.IO.File.ReadAllText("embedConfig.json");
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string jsonString = System.IO.File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
+            GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
             return Ok(jsonData);
-        }
-
-        [HttpGet]
-        [Route("GetDashboards")]
-        public string GetDashboards()
-        {
-            var token = GetToken();
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(GlobalAppSettings.EmbedDetails.ServerUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Add("Authorization", token.TokenType + " " + token.AccessToken);
-                var result = client.GetAsync(GlobalAppSettings.EmbedDetails.ServerUrl + "/api/" + GlobalAppSettings.EmbedDetails.SiteIdentifier + "/v2.0/items?ItemType=2").Result;
-                string resultContent = result.Content.ReadAsStringAsync().Result;
-                return resultContent;
-            }
-        }
-
-        public Token GetToken()
-        {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(GlobalAppSettings.EmbedDetails.ServerUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-
-                var content = new FormUrlEncodedContent(new[]
-                {
-                    new KeyValuePair<string, string>("grant_type", "embed_secret"),
-                    new KeyValuePair<string, string>("Username", GlobalAppSettings.EmbedDetails.UserEmail),
-                    new KeyValuePair<string, string>("embed_secret", GlobalAppSettings.EmbedDetails.EmbedSecret)
-                });
-                var result = client.PostAsync(GlobalAppSettings.EmbedDetails.ServerUrl + "/api/" + GlobalAppSettings.EmbedDetails.SiteIdentifier + "/token", content).Result;
-                string resultContent = result.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Token>(resultContent);
-                return response;
-            }
         }
 
         [HttpPost]
