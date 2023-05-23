@@ -66,7 +66,7 @@ This project was generated using ASP.NET Core version 6.0 or a later version tha
   
   3. Run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser, accessible at the specific port number (https://localhost:5001/api/boldbiembed). Please refer to the following image.
     
-      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/ce4e53c0-d4c4-406b-82bd-13dc77427f2e)
+      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/330abd82-1882-4924-9701-ca5cf8c67c4f)
 
   #### React sample:
 
