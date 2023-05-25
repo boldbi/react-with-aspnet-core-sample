@@ -31,7 +31,7 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
     ![Embed Settings Download](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d27d4cfc-6a3e-4c34-975e-f5f22dea6172)
     ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
-  * Copy the downloaded embedConfig.json file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ASP.NET%20Core/BoldBI.Embed.Sample) within the application. Please ensure that you have placed it in the application as shown in the following image.
+  * Copy the downloaded embedConfig.json file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ReactwithASP.NETCore) within the application. Please ensure that you have placed it in the application as shown in the following image.
     
     ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/bdb83a3e-02e4-4e99-ad57-717438e5ec5c)
 
@@ -40,9 +40,11 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the command prompt and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ReactwithASP.NETCore) where the project is located.
 
-  2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
+  2. To install all dependent packages, use the following command `npm install`.
+
+  3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  3. Finally, run the application using the command `dotnet run`.
+  4. Finally, run the application using the command `dotnet run`.
 
  ## Developer IDE
 
@@ -52,11 +54,13 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the React with ASP.NET Core sample in Visual Studio Code.
 
-  2. Open the terminal in Visual Studio Code and execute the command `dotnet restore` to restore the required dependencies.
+  2. To install all dependent packages, use the following command `npm install`.
+
+  3. Open the terminal in Visual Studio Code and execute the command `dotnet restore` to restore the required dependencies.
  
-  3. Build your .NET project by executing the `dotnet build` command in the terminal.
+  4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  4. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:5001/).
+  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:5001/).
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/cc794823-84a3-45cb-92a5-f38991902121)
 
