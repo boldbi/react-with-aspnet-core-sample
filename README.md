@@ -40,9 +40,9 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the command prompt and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ReactwithASP.NETCore) where the project is located.
 
-  2. To install all dependent packages, use the following command `npm install`.
+  2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
 
-  3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
+  3. To install all dependent packages, use the following command `npm install`.
   
   4. Finally, run the application using the command `dotnet run`.
 
@@ -54,33 +54,15 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the React with ASP.NET Core sample in Visual Studio Code.
 
-  2. To install all dependent packages, use the following command `npm install`.
-
-  3. Open the terminal in Visual Studio Code and execute the command `dotnet restore` to restore the required dependencies.
+  2. Open the terminal in Visual Studio Code and execute the command `dotnet restore` to restore the required dependencies.
  
-  4. Build your .NET project by executing the `dotnet build` command in the terminal.
+  3. Build your .NET project by executing the `dotnet build` command in the terminal.
+
+  4. To install all dependent packages, use the following command `npm install`.
   
   5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:5001/).
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/cc794823-84a3-45cb-92a5-f38991902121)
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-```bash
-npm test
-```
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-```bash
-npm run build
-```
 
 Please refer to the [help documentation](https://help.boldbi.com/embedded-bi/javascript-based/samples/v3.3.40-or-later/react-core/#how-to-run-the-sample) to know how to run the sample.
 
