@@ -1,4 +1,4 @@
-# Bold BI Embedded Sample in React with ASP.NET Core
+# Bold BI Embedded Sample in React with ASP.NETCore
 
 This project was created using ASP.NET Core 6.0. The purpose of this application is to demonstrate how to render the dashboard available on your Bold BI server.
 
