@@ -35,7 +35,6 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
     
     ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/bdb83a3e-02e4-4e99-ad57-717438e5ec5c)
 
-
 ## Run a Sample Using Command Prompt
 
   1. Open the command prompt and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ReactwithASP.NETCore) where the project is located.
@@ -64,7 +63,7 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
 
-Please refer to the [help documentation](https://help.boldbi.com/embedded-bi/javascript-based/samples/v3.3.40-or-later/react-core/#how-to-run-the-sample) to know how to run the sample.
+Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-samples) to know how to run the sample.
 
 ## Important notes
 
