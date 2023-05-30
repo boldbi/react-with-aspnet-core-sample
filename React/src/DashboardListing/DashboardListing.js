@@ -24,11 +24,11 @@ class DashboardListing extends React.Component {
 
   renderDashboard(data) {
     this.dashboard = BoldBI.create({
-      serverUrl: this.state.embedConfig.ServerUrl + "/" + this.state.embedConfig.SiteIdentifier,
+      serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
       dashboardId: data.DashboardId,
       embedContainerId: "dashboard",
       embedType: BoldBI.EmbedType.Component,
-      environment: this.state.embedConfig.Environment == "onpremise" ? BoldBI.Environment.Enterprise : BoldBI.Environment.Cloud,
+      environment: data.Environment == "onpremise" ? BoldBI.Environment.Enterprise : BoldBI.Environment.Cloud,
       mode: BoldBI.Mode.View,
       width: "100%",
       height: window.innerHeight + 'px',
