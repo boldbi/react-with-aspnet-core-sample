@@ -15,11 +15,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-     app.UseCors(corsPolicyBuilder => corsPolicyBuilder
-     .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-     string basePath = AppDomain.CurrentDomain.BaseDirectory;
-     string jsonString = System.IO.File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
-     GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
+app.UseCors(corsPolicyBuilder => corsPolicyBuilder
+.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+string basePath = AppDomain.CurrentDomain.BaseDirectory;
+string jsonString = System.IO.File.ReadAllText(Path.Combine(basePath, "embedConfig.json"));
+GlobalAppSettings.EmbedDetails = JsonConvert.DeserializeObject<EmbedDetails>(jsonString);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
