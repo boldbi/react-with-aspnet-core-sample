@@ -23,6 +23,8 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
  ## Configuration
 
+  * Please [get](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) the React with ASP.NET Core sample from GitHub. 
+
   * Please ensure that you have enabled embed authentication on the `embed settings` page. If it is not currently enabled, please refer to the following image or detailed [instructions](https://help.boldbi.com/site-administration/embed-settings/#get-embed-secret-code) to enable it.
    ![Embed Settings](https://github.com/boldbi/aspnet-core-sample/assets/91586758/b3a81978-9eb4-42b2-92bb-d1e2735ab007)
 
@@ -39,9 +41,9 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the command prompt and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/ReactwithASP.NETCore) where the project is located.
 
-  2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
+  2. To install all dependent packages, use the following command `npm install`.
 
-  3. To install all dependent packages, use the following command `npm install`.
+  3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
   4. Finally, run the application using the command `dotnet run`.
 
@@ -53,11 +55,11 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   1. Open the React with ASP.NET Core sample in Visual Studio Code.
 
-  2. Open the terminal in Visual Studio Code and execute the command `dotnet restore` to restore the required dependencies.
- 
-  3. Build your .NET project by executing the `dotnet build` command in the terminal.
+  2. Open the terminal in Visual Studio Code and install all dependent packages using the following command `npm install`.
 
-  4. To install all dependent packages, use the following command `npm install`.
+  3. Execute the command `dotnet restore` to restore the required dependencies.
+ 
+  4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
   5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:5001/).
     
