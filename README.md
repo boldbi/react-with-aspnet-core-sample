@@ -35,7 +35,7 @@ This project was created using ASP.NET Core 6.0. The purpose of this application
 
   * Copy the downloaded embedConfig.json file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) within the application. Please ensure that you have placed it in the application as shown in the following image.
     
-    ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/bdb83a3e-02e4-4e99-ad57-717438e5ec5c)
+    ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/211892af-3ed9-4e9b-936b-08a3beac43ec)
 
 ## Run a Sample Using Command Prompt
 
