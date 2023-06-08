@@ -37,15 +37,15 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
     
     ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/211892af-3ed9-4e9b-936b-08a3beac43ec)
 
-## Run a Sample Using Command Prompt
+## Run a Sample Using Command Line Interface
 
-  1. Open the command prompt and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) where the project is located.
+  1. Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) where the project is located.
 
   2. To install all dependent packages, use the following command `npm install`.
 
   3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  4. Finally, run the application using the command `dotnet run`.
+  4. Finally, run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
 
  ## Developer IDE
 
@@ -61,7 +61,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
   4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:5001/).
+  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
 
