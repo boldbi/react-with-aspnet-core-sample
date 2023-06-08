@@ -44,7 +44,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  3. Finally, run the application using the command `dotnet run`.
+  3. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., https://localhost:5001/api/boldbiembed). Copy this URL and paste it into your default web browser.
 
   #### React sample:
 
@@ -52,7 +52,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   2. To install all dependent packages, use the following command `npm install`.
 
-  3. Finally, run the application using the command `npm start`.  After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:3000/).
+  3. Finally, run the application using the command `npm start`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:3000/).
 
  ## Developer IDE
 
