@@ -1,148 +1,77 @@
-# BoldBI Embedding React with ASP.NET Core Samples
+# Bold BI Embedded Sample in React with ASP.NETCore
 
-This Bold BI React with ASP.NET Core sample contains the Dashboard embedding samples. In this sample,React application act as the front-end, and ASP.NET Core acts as the back-end application. This sample demonstrates the dashboard rendering with the list of dashboards available in your Bold BI server.
+This project was created using ASP.NET Core 6.0. This application aims to demonstrate how to render the dashboard available on your Bold BI server.
 
-This section guides you in using the Bold BI dashboard in your React with ASP.NET Core sample application.
+## Dashboard view
 
- * [Requirements to run the demo](#requirements-to-run-the-demo)
- * [Using the React with ASP.NET Core sample](#using-the-react-with-asp.net-core-sample)
- * [Online Demos](#online-demos)
- * [Documentation](#documentation)
+![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
+
+ ## Requirements/Prerequisites
  
-  ## Requirements to run the demo
-
-The samples require the following requirements to run.
-
- * [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/)
- * [.NET Core 6.0 or later](https://dotnet.microsoft.com/en-us/download/dotnet-core)
+ * [.NET Core 6.0](https://dotnet.microsoft.com/en-us/download/dotnet-core)
  * [Node.js](https://nodejs.org/en/)
- * [Visual Studio Code](https://code.visualstudio.com/download)
-
- ## Using the React with ASP.NET Core sample
  
- * Open the ASP.NET Core sample's solution file `Syncfusion.Server.EmbedBoldBI.sln` in Visual studio. 
+ > **NOTE:** Node.js v14.16 to v18.16 are supported
 
- * Open the EmbedProperties.cs file in the following location, /Models/EmbedProperties.cs.
+ #### Help link
 
- * Please change the following properties in the `EmbedProperties.cs` file as per your Bold BI Server.
+ * https://help.boldbi.com/embedded-bi/faq/where-can-i-find-the-product-version/
 
-    <meta charset="utf-8"/>
-    <table>
-    <tbody>
-        <tr>
-            <td align="left">RootUrl</td>
-            <td align="left">Dashboard Server URL (Eg: http://localhost:5000/bi, http://demo.boldbi.com/bi).</td>
-        </tr>
-        <tr>
-            <td align="left">EmbedSecret</td>
-            <td align="left">Get your EmbedSecret key from the Embed tab by enabling the `Enable embed authentication` on the Administration page https://help.boldbi.com/embedded-bi/site-administration/embed-settings/.</td>
-        </tr>
-        <tr>
-            <td align="left">SiteIdentifier</td>
-            <td align="left">For the Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be an empty string.</td>
-        </tr>
-        <tr>
-            <td align="left">Environment</td>
-            <td align="left">Your Bold BI application environment. (If Cloud, you should use `cloud,` if Enterprise, you should use `enterprise`).</td>
-        </tr>
-        <tr>
-            <td align="left">UserEmail</td>
-            <td align="left">UserEmail of the Admin in your Bold BI, which would be used to get the dashboard list.</td>
-        </tr>
-    </tbody>
-    </table>
+ #### Supported browsers
+  
+  * Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari.
 
+ ## Configuration
 
-* Now run the back-end ASP.NET Core sample.
+  * Please [get](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) the React with ASP.NET Core sample from GitHub. 
 
-* Open the `React` sample in Visual studio code.
+  * Please ensure you have enabled embed authentication on the `embed settings` page. If it is not currently enabled, please refer to the following image or detailed [instructions](https://help.boldbi.com/site-administration/embed-settings/#get-embed-secret-code) to enable it.
+   ![Embed Settings](https://github.com/boldbi/aspnet-core-sample/assets/91586758/b3a81978-9eb4-42b2-92bb-d1e2735ab007)
 
-* Open the `DashboardListing.js` in following location, /src/DashboardListing/DashboardListing.js.
+  * To download the `embedConfig.json` file, please follow this [link](https://help.boldbi.com/site-administration/embed-settings/#get-embed-configuration-file) for reference. Additionally, you can refer to the following image for visual guidance.
+  
+    ![Embed Settings Download](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d27d4cfc-6a3e-4c34-975e-f5f22dea6172)
+    ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
-* Please change the following properties in the `DashboardListing.js` file as per the your Bold BI server and back-end application.
+  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) within the application. Please ensure you have placed it in the application, as shown in the following image.
+    
+    ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/211892af-3ed9-4e9b-936b-08a3beac43ec)
 
-    <meta charset="utf-8"/>
-    <table>
-    <tbody>
-        <tr>
-            <td align="left">apiHost</td>
-            <td align="left">ASP.NET Core application would be run on http://localhost:61377/, which needs to be set as apiHost.</td>
-        </tr>
-        <tr>
-            <td align="left">environment</td>
-            <td align="left">Your Bold BI application environment. (If Cloud, you should use `cloud,` if Enterprise, you should use `enterprise`).</td>
-        </tr>
-        <tr>
-            <td align="left">rootUrl</td>
-            <td align="left">Dashboard Server URL (Eg: http://localhost:5000/bi, http://demo.boldbi.com/bi).</td>
-        </tr>
-        <tr>
-            <td align="left">siteIdentifier</td>
-            <td align="left">For the Bold BI Enterprise edition, it should be like `site/site1`. For Bold BI Cloud, it should be an empty string.</td>
-        </tr>
-        <tr>
-            <td align="left">authorizationUrl</td>
-            <td align="left">Url of the 'GetDetails' action in the ASP.NET application.</td>
-        </tr>
-        <tr>
-            <td align="left">userEmail</td>
-            <td align="left">UserEmail of the Admin in your Bold BI, which would be used to get the dashboard list.</td>
-        </tr>
-        <tr>
-            <td align="left">userPassword</td>
-            <td align="left">Password of the Admin in your Bold BI, which would be used to get the dashboard list.</td>
-        </tr>
-    </tbody>
-    </table>
+## Run a Sample Using Command Line Interface
 
+  1. Open the command line interface and navigate to the specified file [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) where the project is located.
 
-### Install npm
+  2. To install all dependent packages, use the following command `npm install`.
 
-To install all dependent packages, use the below command
+  3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
+  
+  4. Finally, run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
 
-```bash
-npm install
-```
+ ## Developer IDE
 
-### Install Bold BI Embedded SDK package
+  * Visual studio code(https://code.visualstudio.com/download)
 
-To install the Bold BI Embedded SDK package using the following command,
+  ### Run a Sample Using Visual Studio Code
 
-```bash
-npm install -save @boldbi/boldbi-embedded-sdk
-```
+  1. Open the React with ASP.NET Core sample in Visual Studio Code.
 
-### Run/Serve
+  2. Open the terminal in Visual Studio Code and install all dependent packages using the following command `npm install`.
 
-To run the samples, use the below command
+  3. Execute the command `dotnet restore` to restore the required dependencies.
+ 
+  4. Build your .NET project by executing the `dotnet build` command in the terminal.
+  
+  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
+    
+      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
 
-```bash
-npm start
-```
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-samples) to know how to run the sample.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Important notes
 
-### `npm test`
+It is recommended not to store passwords and sensitive information in configuration files for security reasons in a real-world application. Instead, it would be best if you considered using a secure application, such as Key Vault, to safeguard your credentials.
 
-```bash
-npm test
-```
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-```bash
-npm run build
-```
-
-Please refer to the [help documentation](https://help.boldbi.com/embedded-bi/javascript-based/samples/v3.3.40-or-later/react-core/#how-to-run-the-sample) to know how to run the sample.
-
-## Online Demos
+## Online demos
 
 Look at the Bold BI Embedding sample to live demo [here](https://samples.boldbi.com/embed).
 
