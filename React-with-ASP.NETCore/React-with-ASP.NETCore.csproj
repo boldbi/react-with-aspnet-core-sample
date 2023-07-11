@@ -7,7 +7,7 @@
     <IsPackable>false</IsPackable>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
-    <SpaProxyServerUrl>https://localhost:44459</SpaProxyServerUrl>
+    <SpaProxyServerUrl>http://localhost:44459</SpaProxyServerUrl>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <RootNamespace>React_with_ASP.NETCore</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>

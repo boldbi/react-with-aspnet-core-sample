@@ -13,10 +13,6 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
  > **NOTE:** Node.js v14.16 to v18.16 are supported
 
- #### Help link
-
- * https://help.boldbi.com/embedded-bi/faq/where-can-i-find-the-product-version/
-
  #### Supported browsers
   
   * Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari.
@@ -45,7 +41,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  4. Finally, run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
+  4. Finally, run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:5292/).
 
  ## Developer IDE
 
@@ -61,7 +57,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
   4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
+  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:5292/).
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
 

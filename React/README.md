@@ -13,10 +13,6 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
  > **NOTE:** Node.js v14.16 to v18.16 are supported
 
- #### Help link
-
- * https://help.boldbi.com/embedded-bi/faq/where-can-i-find-the-product-version/
-
  #### Supported browsers
   
   * Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari.
@@ -44,7 +40,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   2. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  3. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., https://localhost:5001/api/boldbiembed). Copy this URL and paste it into your default web browser.
+  3. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:5000/api/boldbiembed). Copy this URL and paste it into your default web browser.
 
   #### React sample:
 
@@ -53,6 +49,9 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
   2. To install all dependent packages, use the following command `npm install`.
 
   3. Finally, run the application using the command `npm start`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:3000/).
+
+  > **NOTE:** If you are using Node.js version 17.2 and 18.16, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
+    "start": "react-scripts --openssl-legacy-provider start"
 
  ## Developer IDE
 
@@ -68,7 +67,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
   3. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  4. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., https://localhost:5001/api/boldbiembed). Copy this URL and paste it into your default web browser.
+  4. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:5000/api/boldbiembed). Copy this URL and paste it into your default web browser.
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/cc794823-84a3-45cb-92a5-f38991902121)
 
@@ -81,6 +80,9 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
   3. To run the application, use the command `npm start` in the terminal.  After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (http://localhost:3000). Please refer to the following image.
 
      ![dashboard view](https://github.com/boldbi/aspnet-core-sample/assets/91586758/7a9786ba-6dc1-4661-b8bb-3bad3d6dcc9a)
+
+  > **NOTE:** If you are using Node.js version 17.2 and 18.16, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
+    "start": "react-scripts --openssl-legacy-provider start"
 
 Please refer to the [help documentation](https://help.boldbi.com/embedded-bi/javascript-based/samples/v3.3.40-or-later/react-core/#how-to-run-the-sample) to know how to run the sample.
 
