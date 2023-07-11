@@ -36,7 +36,6 @@ class DashboardListing extends React.Component {
       },
     });
 
-    console.log(this.dashboard);
     this.dashboard.loadDashboard();
   }
 
