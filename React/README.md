@@ -48,10 +48,10 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   2. To install all dependent packages, use the following command `npm install`.
 
-  3. Finally, run the application using the command `npm start`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:3000/).
+     > **NOTE:** If you are using Node.js version higher than v16.17, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
+     "start": "react-scripts --openssl-legacy-provider start"
 
-  > **NOTE:** If you are using Node.js version higher than v16.17, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
-    "start": "react-scripts --openssl-legacy-provider start"
+  3. Finally, run the application using the command `npm start`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., http://localhost:3000/).
 
  ## Developer IDE
 
@@ -77,12 +77,12 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   2. To install all dependent packages, use the following command `npm install`.
 
+     > **NOTE:** If you are using Node.js version higher than v16.17, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
+     "start": "react-scripts --openssl-legacy-provider start"
+
   3. To run the application, use the command `npm start` in the terminal.  After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (http://localhost:3000). Please refer to the following image.
 
      ![dashboard view](https://github.com/boldbi/aspnet-core-sample/assets/91586758/7a9786ba-6dc1-4661-b8bb-3bad3d6dcc9a)
-
-  > **NOTE:** If you are using Node.js version higher than v16.17, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.<br/>
-    "start": "react-scripts --openssl-legacy-provider start"
 
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-sample) to know how to run the sample.
 
