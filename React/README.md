@@ -4,7 +4,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
 ## Dashboard view
 
-![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
+![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/7a9786ba-6dc1-4661-b8bb-3bad3d6dcc9a)
 
  ## Requirements/Prerequisites
  
@@ -69,7 +69,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
   
   4. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:5000/api/boldbiembed). Copy this URL and paste it into your default web browser.
     
-      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/cc794823-84a3-45cb-92a5-f38991902121)
+      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/f09ce103-f988-4a03-aee7-197d1bf25800)
 
   #### React sample:
 
