@@ -4,7 +4,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
 ## Dashboard view
 
-![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
+![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/af9a9d3f-3ebc-49dd-9bba-a061932cb9f6)
 
  ## Requirements/Prerequisites
  
@@ -12,10 +12,6 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  * [Node.js](https://nodejs.org/en/)
  
  > **NOTE:** Node.js v14.16 to v18.16 are supported
-
- #### Help link
-
- * https://help.boldbi.com/embedded-bi/faq/where-can-i-find-the-product-version/
 
  #### Supported browsers
   
@@ -45,8 +41,8 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
 
   3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  4. Finally, run the application using the command `dotnet run`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
-
+  4. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:44459/). Copy this URL and paste it into your default web browser.
+  
  ## Developer IDE
 
   * Visual studio code(https://code.visualstudio.com/download)
@@ -61,11 +57,11 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
  
   4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  5. To run the application, use the command `dotnet run` in the terminal. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., https://localhost:7075/).
+  5. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:44459/). Copy this URL and paste it into your default web browser.
     
-      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
+      ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/af9a9d3f-3ebc-49dd-9bba-a061932cb9f6)
 
-Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-samples) to know how to run the sample.
+Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
 

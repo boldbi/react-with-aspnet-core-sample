@@ -5,7 +5,7 @@ import '../index';
 import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 
 //ASP.NET Core application would be run on https://localhost:5001; http://localhost:5000, which needs to be set as `apiHost`
-const apiHost = "https://localhost:5001";
+const apiHost = "http://localhost:5000";
 
 //Url of the AuthorizationServer action in ValuesController of the ASP.NET Core application
 const authorizationUrl = "/api/boldbiembed/authorizationserver";
@@ -38,7 +38,6 @@ class DashboardListing extends React.Component {
       },
     });
 
-    console.log(this.dashboard);
     this.dashboard.loadDashboard();
   }
 
