@@ -61,7 +61,7 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/4af68f49-ffc0-400a-a323-55a3f3600a1d)
 
-Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-samples) to know how to run the sample.
+Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
 
