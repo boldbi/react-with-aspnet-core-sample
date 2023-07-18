@@ -11,11 +11,10 @@
     "jquery": "^3.5.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "^3.4.0",
-    "type-casting-tool": "file:../../../npm 5.3.53/embedded-bi-samples"
+    "react-scripts": "^3.4.0"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
