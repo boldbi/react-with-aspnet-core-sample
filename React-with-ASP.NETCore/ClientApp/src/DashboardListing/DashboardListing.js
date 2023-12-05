@@ -53,13 +53,21 @@ class DashboardListing extends React.Component {
 
   async componentDidMount() {
     var dashboard = undefined;
-    var querystring = require('querystring');
+   // var querystring = require('querystring');
     var token = "";
 
     try {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
       const data = await response.json();
-      this.setState({ embedConfig: data });
+       // Transform camelCase keys to PascalCase
+       const transformedData = {
+        DashboardId: data.dashboardId,
+        EmbedType: data.embedType,
+        Environment: data.environment,
+        ServerUrl: data.serverUrl,
+        SiteIdentifier: data.siteIdentifier
+      };
+      this.setState({ embedConfig: transformedData });
       const embedConfig = this.state.embedConfig;
       this.renderDashboard(embedConfig);
     } catch (error) {
