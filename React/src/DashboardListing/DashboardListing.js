@@ -62,14 +62,14 @@ class DashboardListing extends React.Component {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
       const data = await response.json();
       // Transform camelCase keys to PascalCase
-      const transformedData = {
+      const transformedEmbedConfigData = {
         DashboardId: data.dashboardId,
         EmbedType: data.embedType,
         Environment: data.environment,
         ServerUrl: data.serverUrl,
         SiteIdentifier: data.siteIdentifier
       };
-      this.setState({ embedConfig: transformedData });
+      this.setState({ embedConfig: transformedEmbedConfigData });
       const embedConfig = this.state.embedConfig;
       this.renderDashboard(embedConfig);
     } catch (error) {
