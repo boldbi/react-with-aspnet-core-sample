@@ -53,7 +53,7 @@ class DashboardListing extends React.Component {
 
   async componentDidMount() {
     var dashboard = undefined;
-    var querystring = require('querystring');
+    //var querystring = require('querystring');
     var token = "";
 
     try {

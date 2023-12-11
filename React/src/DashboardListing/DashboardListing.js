@@ -60,9 +60,7 @@ class DashboardListing extends React.Component {
 
     try {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
-      const data = await response.json();
-      this.setState({ embedConfig: data });
-      const embedConfig = this.state.embedConfig;
+      const embedConfig = await response.json();
       this.renderDashboard(embedConfig);
     } catch (error) {
       console.log(error);
