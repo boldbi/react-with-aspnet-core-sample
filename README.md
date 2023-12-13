@@ -42,13 +42,6 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
   3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
   4. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:44459/). Copy this URL and paste it into your default web browser.
-
-> **NOTE:** If you are using React version lower than v18.0, you can update the `index.js` file by adding the following line. Ensure that you replace the existing `createRoot` line with the following line.</br>
-
-   ```js
-      import ReactDOM from 'react-dom';
-      ReactDOM.render(<App />, document.getElementById('root'));
-   ```
   
  ## Developer IDE
 
