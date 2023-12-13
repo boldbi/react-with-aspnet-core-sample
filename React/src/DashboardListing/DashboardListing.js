@@ -54,9 +54,9 @@ class DashboardListing extends React.Component {
   }
 
   async componentDidMount() {
-    var dashboard = undefined;
-    var querystring = require('querystring');
-    var token = "";
+    // var dashboard = undefined;
+    // var querystring = require('querystring');
+    // var token = "";
 
     try {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
