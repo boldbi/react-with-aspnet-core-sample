@@ -68,13 +68,6 @@ This project was created using ASP.NET Core 6.0. This application aims to demons
     
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/af9a9d3f-3ebc-49dd-9bba-a061932cb9f6)
 
-> **NOTE:** If you are using React version lower than v18.0, you can update the `index.js` file by adding the following line. Ensure that you replace the existing `createRoot` line with the following line.</br>
-
-  ```js
-   import ReactDOM from 'react-dom';
-   ReactDOM.render(<App />, document.getElementById('root'));
-  ```
-
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-sample) to know how to run the sample.
 
 ## Important notes
