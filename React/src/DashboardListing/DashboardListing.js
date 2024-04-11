@@ -63,9 +63,9 @@ class DashboardListing extends React.Component {
         ServerUrl: data.serverUrl,
         SiteIdentifier: data.siteIdentifier
       };
-      this.setState({ embedConfig: transformedEmbedConfigData });
-      const embedConfig = this.state.embedConfig;
-      this.renderDashboard(embedConfig);
+      this.setState({ embedConfig: transformedEmbedConfigData }, () => {
+        this.renderDashboard(this.state.embedConfig);
+      });
     } catch (error) {
       console.log(error);
       this.setState({ toke: "error", items: "error" });
