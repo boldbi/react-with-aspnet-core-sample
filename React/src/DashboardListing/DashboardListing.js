@@ -33,9 +33,7 @@ class DashboardListing extends React.Component {
       width: "100%",
       height: window.innerHeight + 'px',
       expirationTime: 100000,
-      authorizationServer: {
-        url: apiHost + authorizationUrl
-      },
+      token: "eyJhbGcJlbbmFtZWg0LWJkYmEtMjM2NWUyNjU1MzcCI6MTcxMjE0NzQyMywiaWF0IjopdGUvc2l0ZTEiLCJhdWQiOiJodHRwOi8vbGoidiqlE915obE",//This should be your unique user access token
     });
 
     this.dashboard.loadDashboard();
