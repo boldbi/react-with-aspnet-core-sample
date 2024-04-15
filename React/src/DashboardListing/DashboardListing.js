@@ -33,7 +33,7 @@ class DashboardListing extends React.Component {
       width: "100%",
       height: window.innerHeight + 'px',
       expirationTime: 100000,
-      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhcmluaS5yYW1lc2hAc3luY2Z1c2lvbi5jb20iLCJ1cG4iOiJoYXJpbmkucmFtZXNoQHN5bmNmdXNpb24uY29tIiwibmFtZWlkIjoiMSIsInVuaXF1ZV9uYW1lIjoiYWU4NDU0ZmUtYzZlYy00Njg0LWJkYmEtMjM2NWUyNjU1MzBlIiwiSVAiOiI6OjEiLCJpc3N1ZWRfZGF0ZSI6IjE3MTE1NDI2MjMiLCJuYmYiOjE3MTE1NDI2MjMsImV4cCI6MTcxMjE0NzQyMywiaWF0IjoxNzExNTQyNjIzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjQ5OTk0L2JpL3NpdGUvc2l0ZTEiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQ5OTk0L2JpL3NpdGUvc2l0ZTEifQ.JXhdSyRkFIwug7eQR0ZPLNhUkhy9ddoidiqlE915obE",//This should be your user access token
+      token: "eyJhbGcJlbbmFtZWg0LWJkYmEtMjM2NWUyNjU1MzcCI6MTcxMjE0NzQyMywiaWF0IjopdGUvc2l0ZTEiLCJhdWQiOiJodHRwOi8vbGoidiqlE915obE",//This should be your unique user access token
     });
 
     this.dashboard.loadDashboard();
