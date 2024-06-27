@@ -7,11 +7,11 @@ import { MultiSelectComponent } from "@syncfusion/ej2-react-dropdowns";
 //ASP.NET Core application would be run on https://localhost:5001; http://localhost:5000, which needs to be set as `apiHost`
 const apiHost = "http://localhost:5292";
 
-//Url of the AuthorizationServer action in ValuesController of the ASP.NET Core application
+//Url of the AuthorizationServer action in BoldBIEmbedController of the ASP.NET Core application
 const authorizationUrl = "/api/boldbiembed/authorizationserver";
 
 var BoldBiObj;
-class DashboardListing extends React.Component {
+class WidgetEmbedding extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,24 +25,18 @@ class DashboardListing extends React.Component {
       "Corporate",
       "Distributor",
       "Online",
-      "Dealer",
+      "Dealer"
     ];
-
-    //this.handleButtonClick = this.handleButtonClick.bind(this);
   }
 
-  handleButtonClick() {
-    var instance = BoldBI.getInstance("dashboard"); // "dashboard" -> embed container id.
+  widgetFilter() {
+    var instance = BoldBI.getInstance("dashboard");
     var multiselectContainer = document.getElementById("mtselement");
-    var getlistObj =
-      multiselectContainer.ej2_instances &&
-      multiselectContainer.ej2_instances[0];
-    //console.log(getlistObj, getlistObj.tempValues);
+    var getlistObj = multiselectContainer.ej2_instances && multiselectContainer.ej2_instances[0];
     var selectedValuesList = getlistObj.tempValues;
     if (selectedValuesList && selectedValuesList.length !== 0) {
       document.getElementById("error-text").style.display = "none";
       var selectedValuesString = selectedValuesList.join(",");
-      //console.log(selectedValuesString);
       var updatefiltersValue = "Channel=" + selectedValuesString;
       instance.updateFilters(updatefiltersValue);
     }
@@ -66,14 +60,12 @@ class DashboardListing extends React.Component {
         url: apiHost + authorizationUrl,
       },
     });
-
     this.dashboard.loadDashboardWidget("Sales by Channel");
   }
 
   render() {
     return (
-      <div id="DashboardListing">
-        {/* <div id="container"></div> */}
+      <div>
         <div id="viewer-section">
           <div id="dashboard"></div>
         </div>
@@ -82,55 +74,57 @@ class DashboardListing extends React.Component {
             <h4>Properties</h4>
             <div className="separator"></div>
           </div>
-          
-          {/* <MultiSelectComponent
-            id="mtselement"
-            dataSource={this.channelsData}
-            placeholder="Select Channels"
-          /> */}
-
           <div className="dimension-filter">
-        <span><b>Widget-based Filter</b></span><br/>
-        <div id="heading-content">
-        <p>Here, we are utilizing the <b>Sales by Channel</b> widget from the sample dashboard of the <b>Sales Analysis Dashboard</b>.</p></div>
-        <div className="dimension-initial">
-            <span>In the <b>Initial Rendered</b> view, you can see all the below values in the Sales by Channel widget.</span>
-            <ul>
-              <li>Retail</li>
-              <li>Corporate</li>
-              <li>Distributor</li>
-              <li>Online</li>
-              <li>Dealer</li>
-            </ul>
-        </div>
-        <div className="dimension-ondemand">
-            <span>For <b>On-demand Action</b>, you need to select the options from the dropdown list below and click the <b>"Update filters to Widget"</b> button to see the selected filter values in the Sales by Channel widget.</span>
-            <br/>
-            <MultiSelectComponent
-            id="mtselement"
-            dataSource={this.channelsData}
-            placeholder="Select Channels"
-          />
-          <div id="error-text">Please select atleast one channel</div>
-            <div className="filter-button"><button onClick={this.handleButtonClick}>Update filters to Widget</button></div>
-        </div>
-    </div>
-          
-          {/* <div className="filter-button">
-            <button onClick={this.handleButtonClick}>Click Me</button>
-          </div> */}
-
-          
+            <span>
+              <b>Widget-based Filter</b>
+            </span>
+            <br />
+            <div id="heading-content">
+              <p>
+                Here, we are utilizing the <b>Sales by Channel</b> widget from
+                the sample dashboard of the <b>Sales Analysis Dashboard</b>.
+              </p>
+            </div>
+            <div className="dimension-initial">
+              <span>
+                In the <b>Initial Rendered</b> view, you can see all the below
+                values in the Sales by Channel widget.
+              </span>
+              <ul>
+                <li>Retail</li>
+                <li>Corporate</li>
+                <li>Distributor</li>
+                <li>Online</li>
+                <li>Dealer</li>
+              </ul>
+            </div>
+            <div className="dimension-ondemand">
+              <span>
+                For <b>On-demand Action</b>, you need to select the options from
+                the dropdown list below and click the{" "}
+                <b>"Apply filters"</b> button to see the selected
+                filter values in the Sales by Channel widget.
+              </span>
+              <br />
+              <MultiSelectComponent
+                id="mtselement"
+                dataSource={this.channelsData}
+                placeholder="Select Channels"
+              />
+              <div id="error-text">Please select atleast one channel</div>
+              <div className="filter-button">
+                <button onClick={this.widgetFilter}>
+                  Apply filters
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
   async componentDidMount() {
-    var dashboard = undefined;
-    // var querystring = require('querystring');
-    var token = "";
-
     try {
       const response = await fetch(apiHost + "/api/boldbiembed/GetData");
       const data = await response.json();
@@ -151,4 +145,4 @@ class DashboardListing extends React.Component {
     }
   }
 }
-export default DashboardListing;
+export default WidgetEmbedding;
