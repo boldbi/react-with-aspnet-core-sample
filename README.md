@@ -6,31 +6,31 @@ This project was created using ASP.NET Core 8.0. This application aims to demons
 
 ![Dashboard View](https://github.com/boldbi/aspnet-core-sample/assets/91586758/af9a9d3f-3ebc-49dd-9bba-a061932cb9f6)
 
- ## Requirements/Prerequisites
- 
- * [.NET Core 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
- * [Node.js](https://nodejs.org/en/)
+## Requirements/Prerequisites
+
+* [.NET Core 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+* [Node.js](https://nodejs.org/en/)
 
  > **NOTE:** Node.js v14.16 to v20.15 are supported
 
- #### Supported browsers
+### Supported browsers
   
-  * Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari.
+* Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari.
 
- ## Configuration
+## Configuration
 
-  * Please [get](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) the React with ASP.NET Core sample from GitHub. 
+* Please [get](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) the React with ASP.NET Core sample from GitHub.
 
-  * Please ensure you have enabled embed authentication on the `embed settings` page. If it is not currently enabled, please refer to the following image or detailed [instructions](https://help.boldbi.com/site-administration/embed-settings/#get-embed-secret-code) to enable it.
+* Please ensure you have enabled embed authentication on the `embed settings` page. If it is not currently enabled, please refer to the following image or detailed [instructions](https://help.boldbi.com/site-administration/embed-settings/#get-embed-secret-code) to enable it.
    ![Embed Settings](https://github.com/boldbi/aspnet-core-sample/assets/91586758/b3a81978-9eb4-42b2-92bb-d1e2735ab007)
 
-  * To download the `embedConfig.json` file, please follow this [link](https://help.boldbi.com/site-administration/embed-settings/#get-embed-configuration-file) for reference. Additionally, you can refer to the following image for visual guidance.
+* To download the `embedConfig.json` file, please follow this [link](https://help.boldbi.com/site-administration/embed-settings/#get-embed-configuration-file) for reference. Additionally, you can refer to the following image for visual guidance.
   
     ![Embed Settings Download](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d27d4cfc-6a3e-4c34-975e-f5f22dea6172)
     ![EmbedConfig Properties](https://github.com/boldbi/aspnet-core-sample/assets/91586758/d6ce925a-0d4c-45d2-817e-24d6d59e0d63)
 
-  * Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) within the application. Please ensure you have placed it in the application, as shown in the following image.
-    
+* Copy the downloaded `embedConfig.json` file and paste it into the designated [location](https://github.com/boldbi/react-with-aspnet-core-sample/tree/master/React-with-ASP.NETCore) within the application. Please ensure you have placed it in the application, as shown in the following image.
+
     ![EmbedConfig image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/211892af-3ed9-4e9b-936b-08a3beac43ec)
 
 ## Run a Sample Using Command Line Interface
@@ -41,24 +41,24 @@ This project was created using ASP.NET Core 8.0. This application aims to demons
 
   3. Execute the command `dotnet restore` to restore the necessary packages. Once the packages have been successfully restored, use the `dotnet build` command to build the project.
   
-  4. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:44459/). Copy this URL and paste it into your default web browser.
+  4. Finally, run the application using the command `dotnet run`. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., <http://localhost:44459/>). Copy this URL and paste it into your default web browser.
   
- ## Developer IDE
+## Developer IDE
 
-  * Visual studio code(https://code.visualstudio.com/download)
+* Visual studio code(<https://code.visualstudio.com/download>)
 
-  ### Run a Sample Using Visual Studio Code
+### Run a Sample Using Visual Studio Code
 
   1. Open the React with ASP.NET Core sample in Visual Studio Code.
 
   2. Open the terminal in Visual Studio Code and install all dependent packages using the following command `npm install`.
 
   3. Execute the command `dotnet restore` to restore the required dependencies.
- 
+
   4. Build your .NET project by executing the `dotnet build` command in the terminal.
   
-  5. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., http://localhost:44459/). Copy this URL and paste it into your default web browser.
-    
+  5. To run the application, use the command `dotnet run` in the terminal. After the application has started, it will display a URL in the `command line interface`, typically something like (e.g., <http://localhost:44459/>). Copy this URL and paste it into your default web browser.
+
       ![dashboard image](https://github.com/boldbi/aspnet-core-sample/assets/91586758/af9a9d3f-3ebc-49dd-9bba-a061932cb9f6)
 
 Please refer to the [help documentation](https://help.boldbi.com/embedding-options/embedding-sdk/samples/react-core/#how-to-run-the-sample) to know how to run the sample.
@@ -70,7 +70,6 @@ It is recommended not to store passwords and sensitive information in configurat
 ## Online demos
 
 Look at the Bold BI Embedding sample to live demo [here](https://samples.boldbi.com/embed).
-
 
 ## Documentation
 
