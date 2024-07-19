@@ -48,7 +48,7 @@ This project was created using ASP.NET Core 8.0. This application aims to demons
   2. To install all dependent packages, use the following command `npm install`.
 
      > **NOTE:** If you are using Node.js version higher than v16.17, you can update the `package.json` file by adding the following line as a `script` within the `start` command. Make ensure that you replace the existing line with this updated script.
-     "start": "react-scripts --openssl-legacy-provider start"
+     > "start": "react-scripts --openssl-legacy-provider start"
 
   3. Finally, run the application using the command `npm start`. After executing the command, the application will automatically launch in the default browser. You can access it at the specified port number (e.g., <http://localhost:3000/>).
 
