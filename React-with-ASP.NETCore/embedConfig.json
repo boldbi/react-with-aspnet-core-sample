@@ -1,0 +1,10 @@
+{
+    "DashboardId": "0258acaa-6372-4134-9a08-d4067a1ddda8",
+    "ServerUrl": "http://localhost:53153/bi",
+    "UserEmail": "nithya.gopal@syncfusion.com",
+    "EmbedSecret": "3yVxUNWqU8VxORxBEYYQRdsSMPz4tdHP",
+    "EmbedType": "component",
+    "Environment": "onpremise",
+    "ExpirationTime": "10000",
+    "SiteIdentifier": "site/site1"
+  }
