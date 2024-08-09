@@ -1,5 +1,5 @@
 html, body {
-    height: 100%;
+    height: 100vh;
     margin: 0;
     overflow: hidden;
   }
@@ -27,18 +27,18 @@ html, body {
   
   .sidebar {
     background-color: #f4f4f4;
-    width: 20%; /* Initial width at 20% */
+    width: 10%; /* Initial width at 20% */
     transition: width 0.3s;
     overflow: hidden;
     flex-shrink: 0;
   }
   
   .sidebar.open {
-    width: 30%; /* Expanded width at 30% */
+    width: 15%; /* Expanded width at 30% */
   }
   
   .sidebar.closed {
-    width: 20%; /* Closed width at 20% */
+    width: 10%; /* Closed width at 20% */
   }
   
   .toggle-btn {
