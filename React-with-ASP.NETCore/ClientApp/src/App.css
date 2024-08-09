@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .app {
+    /* display: flex;
+    height: 100vh;
+    width: 100vw; */
+    /* flex-direction: column; */
+    /* height: 100vh;
+    overflow: hidden; */
+
+    display: flex;
+   /* flex-direction: column;  */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* overflow: visible; */
+    /* overflow-x: auto; 
+    overflow-y: hidden;  */
+  }
+  
+  .sidebar {
+    background: beige;
+    color: #fff;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    width: 20%;
+    flex-shrink: 0;
+  }
+  
+  .sidebar.collapsed {
+    width: 20%;
+  }
+  
+  .sidebar.expanded {
+    width: 30%;
+  }
+  
+  .dashboard {
+    background: #f4f4f4;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    /* width: 100%;
+    height: 100vh;  */
+    
+    /* margin: 10px; */
+  }
+  
+  .sidebar.collapsed ~ #viewer-section {
+    width:80%;
+  }
+  
+  .sidebar.expanded ~ #viewer-section {
+    width: 70%;
+  }
+  
+  button {
+    color: black;
+    background: none;
+    /* background: #444;
+    color: #fff; */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  #container-content {
+    flex: 1 1;
+    overflow: hidden;
+    display: flex;
+    
+    /* margin-top: 61px; */
+    /* height: 80%; */
+  }
+
+  #headercontent {
+    height: 20%;
+    width: 20%;
+    position: absolute;
+  }
+
+  /* .viewer-section {
+    width: 80%;
+    height: 100%;
+  } */
+/* 
+  #viewer-section {
+    width: 80%;
+    height: 100%;
+  } */
+
+  /* #viewer-section1 {
+    width: 80%;
+    height: 100%;
+  } */

@@ -25,6 +25,7 @@ class DashboardListing extends React.Component {
       serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
       dashboardId: data.DashboardId,
       embedContainerId: "dashboard",
+     // pinboardName: "Pinboard",
       embedType: data.EmbedType,
       environment: data.Environment,
       mode: BoldBI.Mode.View,
@@ -36,7 +37,8 @@ class DashboardListing extends React.Component {
       },
     });
 
-    this.dashboard.loadDashboard();
+     this.dashboard.loadDashboard();
+    //this.dashboard.loadPinboard();
   }
 
   render() {
