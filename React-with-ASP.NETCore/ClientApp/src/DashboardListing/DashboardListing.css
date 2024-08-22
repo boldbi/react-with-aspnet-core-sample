@@ -1,0 +1,33 @@
+/* DashboardListing.css */
+
+#section {
+    width: 20%;
+    height: 100%;
+    background-color: slategrey;
+    float: left;
+    transition: width 0.3s ease; /* Smooth transition */
+  }
+  
+  #section.collapsed {
+    width: 30%;
+  }
+  
+  #viewer-section {
+    width: 80%;
+    height: 100%;
+    float: left;
+    transition: width 0.3s ease; /* Smooth transition */
+  }
+  
+  #viewer-section.expanded {
+    width: 70%;
+  }
+  
+  button {
+    color: black;
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
