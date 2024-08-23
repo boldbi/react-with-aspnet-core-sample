@@ -23,53 +23,53 @@ class DashboardListing extends React.Component {
 
   renderDashboard(data) {
     this.dashboard = BoldBI.create({
-    serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
-   // dashboardId: "015e1ce3-2a6a-4fac-ab1e-59b3243d565a",
-  //dashboardId: "b2446acf-b80f-4881-aaa1-117283c8c84d", // Multi
-  //viewName: "TestJSSimplification",
-  // viewName: "Nithya Gopal",
-  dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174",
- //datasourceName: "sdfsdsfsfdfssdgfd",
-  // dashboardId: data.DashboardId,
-//  dashboardPaths: ["/Sales/Sales Analysis Dashboard (2)", "/Government/DynamicConnectionStringty"],
- // viewId: "754c76be-3dcb-4f10-a9ca-be3b3279e62a",
-  embedContainerId: "dashboard",
- //pinboardName: "Pinboard",
- // embedType: data.EmbedType,
- // environment: data.Environment,
-//mode: BoldBI.Mode.View,
- // mode: BoldBI.Mode.Design,
-//mode: BoldBI.Mode.DataSource,
- //mode: BoldBI.Mode.Connection,
-  // width: "600px",
-  // height: "600px",
-  // width: "100%",
-  // height: "100vh",
-  width: "100%",
-  //height: "100%",
-  // height: "100%",
-  height: window.innerHeight + 'px',
-  //expirationTime: 100000,
-  authorizationServer: {
-    url: apiHost + authorizationUrl
-  },
+      serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+      // dashboardId: "015e1ce3-2a6a-4fac-ab1e-59b3243d565a",
+      //dashboardId: "b2446acf-b80f-4881-aaa1-117283c8c84d", // Multi
+      //viewName: "TestJSSimplification",
+      // viewName: "Nithya Gopal",
+     //dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174",
+      //datasourceName: "sdfsdsfsfdfssdgfd",
+      // dashboardId: data.DashboardId,
+        dashboardPaths: ["/Sales/Sales Analysis Dashboard (2)", "/Government/DynamicConnectionStringty"],
+      //viewId: "754c76be-3dcb-4f10-a9ca-be3b3279e62a",
+      embedContainerId: "dashboard",
+      //pinboardName: "Pinboard",
+      // embedType: data.EmbedType,
+      // environment: data.Environment,
+      //mode: BoldBI.Mode.View,
+      // mode: BoldBI.Mode.Design,
+      //mode: BoldBI.Mode.DataSource,
+    //  mode: BoldBI.Mode.Connection,
+      // width: "600px",
+      // height: "600px",
+      width: "100%",
+      height: "100vh",
+    //   width: "100%",
+    //   // height: "100%",
+    // // //   // height: "100%",
+    // height: window.innerHeight + 'px',
+      //expirationTime: 100000,
+      authorizationServer: {
+        url: apiHost + authorizationUrl
+      },
 
-//     widgetContainerSettings: {
-//       margin: 50,
-//  }
+      //     widgetContainerSettings: {
+      //       margin: 50,
+      //  }
 
-//       widgetList: [{ widgetName: "Chart2", containerId: "widget1" },
-//  { widgetName: "Chart3", containerId: "widget2" }],
-});
+      //       widgetList: [{ widgetName: "Chart2", containerId: "widget1" },
+      //  { widgetName: "Chart3", containerId: "widget2" }],
+    });
 
-  this.dashboard.loadDashboardWidget("Chart1");
-//this.dashboard.loadMultipleWidgets();
-//this.dashboard.loadMultitabDashboard();
-//this.dashboard.loadView();
-// this.dashboard.loadDashboard();
-//this.dashboard.loadDesigner();
-// this.dashboard.loadPinboard();
-//this.dashboard.loadDatasource();
+   // this.dashboard.loadDashboardWidget("Chart1");
+    //this.dashboard.loadMultipleWidgets();
+    this.dashboard.loadMultitabDashboard();
+    //this.dashboard.loadView();
+    //this.dashboard.loadDashboard();
+   // this.dashboard.loadDesigner();
+    // this.dashboard.loadPinboard();
+    //this.dashboard.loadDatasource();
   }
 
 
@@ -172,14 +172,14 @@ class DashboardListing extends React.Component {
 
   async componentDidMount() {
     var dashboard = undefined;
-   // var querystring = require('querystring');
+    // var querystring = require('querystring');
     var token = "";
 
     try {
       const response = await fetch(apiHost + '/api/boldbiembed/GetData');
       const data = await response.json();
-       // Transform camelCase keys to PascalCase
-       const transformedEmbedConfigData = {
+      // Transform camelCase keys to PascalCase
+      const transformedEmbedConfigData = {
         DashboardId: data.dashboardId,
         EmbedType: data.embedType,
         Environment: data.environment,
