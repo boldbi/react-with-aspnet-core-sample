@@ -25,13 +25,13 @@ class DashboardListing extends React.Component {
     this.dashboard = BoldBI.create({
       serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
       // dashboardId: "015e1ce3-2a6a-4fac-ab1e-59b3243d565a",
-      //dashboardId: "b2446acf-b80f-4881-aaa1-117283c8c84d", // Multi
+     //dashboardId: "b2446acf-b80f-4881-aaa1-117283c8c84d", // Multi
       //viewName: "TestJSSimplification",
       // viewName: "Nithya Gopal",
-     //dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174",
+       dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174",
       //datasourceName: "sdfsdsfsfdfssdgfd",
       // dashboardId: data.DashboardId,
-        dashboardPaths: ["/Sales/Sales Analysis Dashboard (2)", "/Government/DynamicConnectionStringty"],
+    //  dashboardPaths: ["/Sales/Sales Analysis Dashboard (2)", "/Government/DynamicConnectionStringty"],
       //viewId: "754c76be-3dcb-4f10-a9ca-be3b3279e62a",
       embedContainerId: "dashboard",
       //pinboardName: "Pinboard",
@@ -41,13 +41,15 @@ class DashboardListing extends React.Component {
       // mode: BoldBI.Mode.Design,
       //mode: BoldBI.Mode.DataSource,
     //  mode: BoldBI.Mode.Connection,
-      // width: "600px",
-      // height: "600px",
-      width: "100%",
-      height: "100vh",
-    //   width: "100%",
-    //   // height: "100%",
-    // // //   // height: "100%",
+      //  width: "600px",
+      //  height: "600px",
+      //  width: window.innerWidth +"px",
+      // height: window.innerHeight + "px",
+      //  width: "100vw",
+      // height: "100vh",
+    //    width: "100%",
+    // // height: "100%",
+  
     // height: window.innerHeight + 'px',
       //expirationTime: 100000,
       authorizationServer: {
@@ -58,31 +60,86 @@ class DashboardListing extends React.Component {
       //       margin: 50,
       //  }
 
-      //       widgetList: [{ widgetName: "Chart2", containerId: "widget1" },
-      //  { widgetName: "Chart3", containerId: "widget2" }],
+       widgetList: [{ widgetName: "Chart2", containerId: "widget1" },
+       { widgetName: "Chart3", containerId: "widget2" }],
     });
 
    // this.dashboard.loadDashboardWidget("Chart1");
-    //this.dashboard.loadMultipleWidgets();
-    this.dashboard.loadMultitabDashboard();
+    this.dashboard.loadMultipleWidgets();
+  //  this.dashboard.loadMultitabDashboard();
     //this.dashboard.loadView();
-    //this.dashboard.loadDashboard();
+//this.dashboard.loadDashboard();
    // this.dashboard.loadDesigner();
     // this.dashboard.loadPinboard();
     //this.dashboard.loadDatasource();
   }
 
+  renderDashboard12(data) {
+    this.dashboard = BoldBI.create({
+      serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+      dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174",
+      embedContainerId: "dashboard",
+      width: "90%",
+      height: "80%",
+      authorizationServer: {
+        url: apiHost + authorizationUrl
+      },
+    });
+
+
+   // this.dashboard.loadDashboardWidget("Chart1");
+    //this.dashboard.loadMultipleWidgets();
+    //this.dashboard.loadMultitabDashboard();
+    //this.dashboard.loadView();
+   this.dashboard.loadDashboard();
+
+
+
+   var widget1Instance = BoldBI.create({
+    serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+    dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174", 
+    embedContainerId: "widget1",
+    width: "50%",
+    height: "40%",
+    authorizationServer: {
+      url: apiHost + authorizationUrl
+    },
+});
+widget1Instance.loadDashboardWidget("Chart1");
+
+var widget2Instance = BoldBI.create({
+  serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+  dashboardId: "6fecfd2b-d07c-4992-9597-5f02dec00174", 
+  embedContainerId: "widget2",
+  width: "65%",
+  height: "100%",
+  authorizationServer: {
+    url: apiHost + authorizationUrl
+  },
+});
+widget2Instance.loadDashboardWidget("Chart3");
+  }
+
+
+  
 
   toggleSection = () => {
     this.setState((prevState) => ({
       isCollapsed: !prevState.isCollapsed
     }), () => {
       // Use BoldBI SDK to resize the dashboard
-      setTimeout(() => {
-        if (this.dashboard) {
-          this.dashboard.resizeDashboard();
+      // setTimeout(() => {
+      //   if (this.dashboard) {
+      //     this.dashboard.resizeDashboard();
+      //   }
+      // }, 300);
+
+      const instance = BoldBI.getInstance('dashboard');
+       setTimeout(() => {
+        if (instance) {
+          instance.resizeDashboard();
         }
-      }, 300);
+       }, 300);
     });
   }
 
@@ -99,6 +156,8 @@ class DashboardListing extends React.Component {
         </div>
         <div id="viewer-section" className={viewerClass}>
           <div id="dashboard"></div>
+          <div id="widget1"></div>
+          <div id="widget2"></div>
         </div>
       </div>
     );

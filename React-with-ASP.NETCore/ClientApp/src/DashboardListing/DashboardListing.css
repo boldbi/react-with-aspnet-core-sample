@@ -1,14 +1,19 @@
 /* DashboardListing.css */
-
-html, body, #root {
+html, body, #root, #DashboardListing, #viewer-section, #dashboard {
+    height: 100%;
+  }
+  html, body, #root > div {
+    height: 100%;
+  }
+/* html, body, #root {
     width: 100%;
     height: 100%;
     overflow: hidden;
-  }
+  } */
 
 #section {
-    width: 20%;
     height: 100%;
+    width: 20%;
     background-color: slategrey;
     float: left;
     transition: width 0.3s ease; /* Smooth transition */
