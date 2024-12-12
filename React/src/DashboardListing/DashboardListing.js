@@ -27,15 +27,11 @@ class DashboardListing extends React.Component {
       serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
       dashboardId: data.DashboardId,
       embedContainerId: "dashboard",
-      embedType: data.EmbedType,
-      environment: data.Environment,
-      mode: BoldBI.Mode.View,
       width: "100%",
       height: window.innerHeight + 'px',
-      expirationTime: 100000,
       authorizationServer: {
         url: apiHost + authorizationUrl
-      },
+      }
     });
 
     this.dashboard.loadDashboard();
