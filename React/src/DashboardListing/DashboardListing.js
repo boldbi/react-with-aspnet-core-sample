@@ -10,7 +10,6 @@ const apiHost = "http://localhost:5000";
 //Url of the AuthorizationServer action in ValuesController of the ASP.NET Core application
 const authorizationUrl = "/api/boldbiembed/authorizationserver";
 
-var BoldBiObj;
 class DashboardListing extends React.Component {
   constructor(props) {
     super(props);

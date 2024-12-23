@@ -11,6 +11,9 @@
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <RootNamespace>React_with_ASP.NETCore</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
+    <NuGetAuditMode>all</NuGetAuditMode>
+    <NuGetAuditLevel>low</NuGetAuditLevel>
+    <NuGetAudit>true</NuGetAudit>
   </PropertyGroup>
 
   <ItemGroup>
