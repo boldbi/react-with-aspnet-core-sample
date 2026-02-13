@@ -1,5 +1,4 @@
 import React from 'react';
-import './DashboardListing.css';
 import '../index.css';
 import '../index';
 import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
@@ -7,10 +6,10 @@ import { BoldBI } from '@boldbi/boldbi-embedded-sdk';
 //ASP.NET Core application would be run on https://localhost:5001; http://localhost:5000, which needs to be set as `apiHost`
 const apiHost = "http://localhost:5000";
 
-//Url of the AuthorizationServer action in ValuesController of the ASP.NET Core application
-const authorizationUrl = "/api/boldbiembed/authorizationserver";
+//Url of the TokenGeneration action in BoldBIEmbedController of the ASP.NET Core application
+const tokenGenerationUrl = "/api/boldbiembed/tokengeneration";
 
-class DashboardListing extends React.Component {
+class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,20 +20,34 @@ class DashboardListing extends React.Component {
     this.BoldBiObj = new BoldBI();
   };
 
-  renderDashboard(data) {
-    this.dashboard = BoldBI.create({
-      serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
-      dashboardId: data.DashboardId,
-      embedContainerId: "dashboard",
-      width: "100%",
-      height: window.innerHeight + 'px',
-      authorizationServer: {
-        url: apiHost + authorizationUrl
-      }
-    });
-
-    this.dashboard.loadDashboard();
+  getEmbedToken() {
+    return fetch(apiHost + tokenGenerationUrl, { // Backend application URL
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({})
+    })
+      .then(response => {
+        if (!response.ok) throw new Error("Token fetch failed");
+        return response.text();
+      });
   }
+
+  renderDashboard(data) {
+    this.getEmbedToken()
+      .then(accessToken => {
+        const dashboard = BoldBI.create({
+          serverUrl: data.ServerUrl + "/" + data.SiteIdentifier,
+          dashboardId: data.DashboardId,
+          embedContainerId: "dashboard",
+          embedToken: accessToken
+        });
+
+        dashboard.loadDashboard();
+      })
+      .catch(err => {
+        console.error("Error rendering dashboard:", err);
+      });
+  };
 
   render() {
     return (
@@ -69,4 +82,4 @@ class DashboardListing extends React.Component {
     }
   }
 }
-export default DashboardListing;
+export default Dashboard;
