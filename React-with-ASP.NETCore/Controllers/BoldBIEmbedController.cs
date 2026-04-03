@@ -1,6 +1,8 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Http;
+using System.Text;
 
 namespace React_with_ASP.NETCore.Controllers
 {
@@ -44,7 +46,8 @@ namespace React_with_ASP.NETCore.Controllers
             var requestUrl = $"{embedDetails.serverurl}/api/{embedDetails.siteidentifier}/embed/authorize";
 
             var jsonPayload = JsonConvert.SerializeObject(embedDetails);
-            var httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+            var httpContent = new StringContent(jsonPayload, Encoding.UTF8);
+            httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
             var result = client.PostAsync(requestUrl, httpContent).Result;
             var resultContent = result.Content.ReadAsStringAsync().Result;
